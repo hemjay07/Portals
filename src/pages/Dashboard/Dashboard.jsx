@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Sidebar from "./components/Sidebar";
-import Background from "./components/background";
-import CareerGoal from "./components/careerGoals";
-import Experience from "./components/experience";
-import PersonalInfo from "./components/personalInfo";
+import Sidebar from "../../components/dashboardComponents/Sidebar";
+import Background from "../../components/dashboardComponents/background";
+import CareerGoal from "../../components/dashboardComponents/careerGoals";
+import Experience from "../../components/dashboardComponents/experience";
+import PersonalInfo from "../../components/dashboardComponents/personalInfo";
 import { TfiAngleDoubleRight } from "react-icons/tfi";
 import { CgProfile } from "react-icons/cg";
 import { IoLogoXbox } from "react-icons/io";
@@ -11,7 +11,6 @@ import styled from "styled-components";
 
 import { Link, Routes, Route } from "react-router-dom";
 import { DashboardContainer, FormContainer } from "./Dashboard.styled";
-// import SignIn from "./signIn";
 
 export default function Dashboard() {
   const [sidebar, setSidebar] = useState(true);

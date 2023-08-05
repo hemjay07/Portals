@@ -1,8 +1,8 @@
 import React from "react";
 import { styled } from "styled-components";
-import SignInButton from "../signIn";
+import SignInButton from "../../pages/signIn";
 
-function Cta() {
+function Cta({ loggedUser, setLoggedUser }) {
   return (
     <ActionCall id="google-login">
       <ActionTitle>You need this!</ActionTitle>

@@ -1,8 +1,8 @@
 import React from "react";
 import { keyframes, styled } from "styled-components";
-import linkedin from "../assets/linkedin.png";
-import heart from "../assets/heart.svg";
-import twitter from "../assets/X_logo.svg";
+import linkedin from "../../assets/linkedin.png";
+import heart from "../../assets/heart.svg";
+import twitter from "../../assets/X_logo.svg";
 
 function Footer() {
   return (

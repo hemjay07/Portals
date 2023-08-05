@@ -1,6 +1,6 @@
 import React from "react";
 import { styled } from "styled-components";
-import check from "../assets/check.svg";
+import check from "../../assets/check.svg";
 
 function Hero({ scroll }) {
   return (
