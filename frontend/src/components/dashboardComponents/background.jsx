@@ -103,7 +103,6 @@ export default function Background({ roadMapContent, handlechange }) {
         />
         Experienced but seeking an entirely new role
       </label>
-      <button onClick={() => console.log(roadMapContent)}></button>
 
       <NextPage />
     </Container>

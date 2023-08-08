@@ -4,7 +4,6 @@ import { Container, StyledLabel } from "./formComponents.styled";
 import NextPage from "./nextPage";
 
 export default function Experience({ roadMapContent, handlechange }) {
-  // const [skills, setSkills] = useState();
   return (
     <Container>
       <h1>Experience</h1>
@@ -51,7 +50,6 @@ export default function Experience({ roadMapContent, handlechange }) {
           }}
         />
       </StyledLabel>{" "}
-      <button onClick={() => console.log(roadMapContent.experience)}></button>
       <NextPage />
     </Container>
   );
