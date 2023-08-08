@@ -1,16 +1,21 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  border-right: solid 2px black;
+  padding-top: 2rem;
+  border-right: solid 1px black;
   width: 20%;
   height: 70vh;
   // background-color: red;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 3rem;
   @media screen and (max-width: 428px) {
     position: absolute;
     top: 0;
     width: 60%;
+    background-color: #7fdb57;
+  }
+  p {
+    color: black;
   }
 `;

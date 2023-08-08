@@ -10,7 +10,7 @@ import Footer from "../../components/homePageComponents/Footer";
 import { styled } from "styled-components";
 import { loggedInUserContext } from "../../App";
 
-function Home({ loggedUser, setLoggedUser }) {
+function Home() {
   // const [value, setValue] = useState("");
   const { loggedInUser, setLoggedInUser } = useContext(loggedInUserContext);
   const navigate = useNavigate();

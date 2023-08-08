@@ -6,7 +6,7 @@ import NextPage from "./nextPage";
 export default function CareerGoal() {
   return (
     <Container>
-      this is the CareerGoal
+      <h2>Career Goals</h2>
       <NextPage />
     </Container>
   );

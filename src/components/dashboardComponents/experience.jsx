@@ -6,8 +6,7 @@ import NextPage from "./nextPage";
 export default function Experience() {
   return (
     <Container>
-      this is the Experience
-      <NextPage />
+      <h2>Experience</h2> <NextPage />
     </Container>
   );
 }

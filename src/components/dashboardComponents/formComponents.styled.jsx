@@ -20,6 +20,13 @@ export const NextPageButton = styled.button`
   position: absolute;
   bottom: 10px;
   right: 10px;
+  background-color: #7fdb57;
+  border: black solid 1px;
+  border-radius: 10px;
+  &:hover {
+    background-color: #7fdb57;
+    scale: 1.1;
+  }
 `;
 
 export const StyledLabel = styled.label`

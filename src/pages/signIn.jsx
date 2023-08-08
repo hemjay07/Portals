@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { auth, authProvider } from "../firebase";
 import { signInWithPopup } from "firebase/auth";
 import styled from "styled-components";
@@ -13,7 +13,7 @@ export default function SignInButton() {
       navigate("/dashboard");
     } else {
       signInWithPopup(auth, authProvider).then((data) => {
-        console.log(data);
+        console.log(data.user.email);
         setLoggedInUser(data.user.email);
         localStorage.setItem("email", data.user.email);
         navigate("/dashboard");

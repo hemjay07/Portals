@@ -1,47 +1,44 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext, createContext } from "react";
 import Sidebar from "../../components/dashboardComponents/Sidebar";
 import Background from "../../components/dashboardComponents/background";
 import CareerGoal from "../../components/dashboardComponents/careerGoals";
 import Experience from "../../components/dashboardComponents/experience";
 import PersonalInfo from "../../components/dashboardComponents/personalInfo";
 import { TfiAngleDoubleRight } from "react-icons/tfi";
-import { CgProfile } from "react-icons/cg";
 import { IoLogoXbox } from "react-icons/io";
 import styled from "styled-components";
+import { loggedInUserContext } from "../../App";
+import Header from "../../components/homePageComponents/Header";
 
 import { Link, Routes, Route } from "react-router-dom";
 import { DashboardContainer, FormContainer } from "./Dashboard.styled";
+export const SideBarContext = createContext();
 
 export default function Dashboard() {
-  const [sidebar, setSidebar] = useState(true);
-  function handleClick() {
-    setSidebar(!sidebar);
-  }
-  return (
-    <DashboardContainer>
-      <Link to="/">
-        {" "}
-        <h1>navbar</h1>
-      </Link>
+  const [sidebar, setSideBar] = useState(true);
+  const { loggedInUser } = useContext(loggedInUserContext);
+  // console.log(setSidebar);
+  // function setSideBar() {
+  //   setSsidebar(!sidebar);
+  // }
 
-      <LogoAndProfile>
-        <Logo />
-        <div>
-          <ProfilePicture />
-          Opeyimika
-        </div>
-      </LogoAndProfile>
-      <FormContainer>
-        <OpenSidebar onClick={handleClick} />
-        <Sidebar sidebar={sidebar} handleClick={() => handleClick()} />{" "}
-        <Routes>
-          <Route path="page1" element={<PersonalInfo />} />
-          <Route path="page2" element={<Background />} />
-          <Route path="page3" element={<Experience />} />
-          <Route path="page4" element={<CareerGoal />} />
-        </Routes>
-      </FormContainer>
-    </DashboardContainer>
+  return (
+    <SideBarContext.Provider value={{ sidebar, setSideBar }}>
+      <DashboardContainer>
+        <Header />
+
+        <FormContainer>
+          <OpenSidebar onClick={() => setSideBar(!sidebar)} />
+          <Sidebar />
+          <Routes>
+            <Route path="page1" element={<PersonalInfo />} />
+            <Route path="page2" element={<Background />} />
+            <Route path="page3" element={<Experience />} />
+            <Route path="page4" element={<CareerGoal />} />
+          </Routes>
+        </FormContainer>
+      </DashboardContainer>
+    </SideBarContext.Provider>
   );
 }
 
@@ -53,6 +50,8 @@ const OpenSidebar = styled(TfiAngleDoubleRight)`
   top: 0;
   font-size: 2rem;
   padding-right: 10px;
+  font-weight: 900;
+  color: black;
   @media screen and (min-width: 428px) {
     display: none;
   }
@@ -60,14 +59,6 @@ const OpenSidebar = styled(TfiAngleDoubleRight)`
 
 const Logo = styled(IoLogoXbox)`
   font-size: 36px;
-`;
-
-const ProfilePicture = styled(CgProfile)`
-  position: relative;
-  right: 0;
-  font-size: 36px;
-  margin-right: 0.5rem;
-  border: red solid 2px;
 `;
 
 const LogoAndProfile = styled.div`

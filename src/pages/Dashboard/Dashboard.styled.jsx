@@ -20,7 +20,7 @@ export const FormContainer = styled.div`
 
 export const DashboardContainer = styled.div`
   padding: 0 1rem;
-  border: solid 2px red;
+  // border: solid 2px red;
   background-color: #020401;
   color: white;
   height: 100vh;
