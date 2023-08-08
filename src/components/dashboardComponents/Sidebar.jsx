@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Wrapper } from "./sidebar.styled";
 import { Link } from "react-router-dom";
 import { TfiAngleDoubleLeft } from "react-icons/tfi";
@@ -9,40 +9,51 @@ export default function Sidebar() {
 
   // console.log(setSideBar);
   function handleClick() {
-    setSideBar(!sidebar);
+    if (window.innerWidth < 500) {
+      setSideBar(false);
+    }
   }
-  if (window.innerWidth > 428) {
-    setSideBar(true);
-  }
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 500) {
+        setSideBar(true);
+      } else {
+        setSideBar(false);
+      }
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Clean up event listener when component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []); // Dependency array is empty to run the effect only on mount and unmount
+
+  // Rest of your component code
+
   return (
     <>
       {sidebar && (
         <Wrapper>
           <CloseSidebar onClick={handleClick} />
-          <StyledLink
-            to="/dashboard/page1"
-            onClick={() => setSideBar(!sidebar)}
-          >
+          <StyledLink to="/dashboard/page1" onClick={() => handleClick()}>
             <span>1</span> <p>Personal Info</p>
           </StyledLink>
-          <StyledLink
-            to="/dashboard/page2"
-            onClick={() => setSideBar(!sidebar)}
-          >
+          <StyledLink to="/dashboard/page2" onClick={() => handleClick()}>
             <span>2</span>
             <p>Background</p>
           </StyledLink>
-          <StyledLink
-            to="/dashboard/page3"
-            onClick={() => setSideBar(!sidebar)}
-          >
+          <StyledLink to="/dashboard/page3" onClick={() => handleClick()}>
             <span>3</span>
             <p>Experience</p>
           </StyledLink>
-          <StyledLink
-            to="/dashboard/page4"
-            onClick={() => setSideBar(!sidebar)}
-          >
+          <StyledLink to="/dashboard/page4" onClick={() => handleClick()}>
             <span>4</span>
 
             <p>Career Goals</p>
@@ -59,7 +70,7 @@ const CloseSidebar = styled(TfiAngleDoubleLeft)`
   font-weight: 900;
   color: black;
   padding-right: 10px;
-  @media screen and (min-width: 428px) {
+  @media screen and (min-width: 500px) {
     display: none;
   }
 `;

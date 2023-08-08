@@ -13,14 +13,28 @@ import Header from "../../components/homePageComponents/Header";
 import { Link, Routes, Route } from "react-router-dom";
 import { DashboardContainer, FormContainer } from "./Dashboard.styled";
 export const SideBarContext = createContext();
+// export const roadMapContent = createContext
 
 export default function Dashboard() {
   const [sidebar, setSideBar] = useState(true);
-  const { loggedInUser } = useContext(loggedInUserContext);
-  // console.log(setSidebar);
-  // function setSideBar() {
-  //   setSsidebar(!sidebar);
-  // }
+  // const { loggedInUser } = useContext(loggedInUserContext);
+  const [roadMapContent, setRoadMapContent] = useState({
+    personalInfo: {},
+    background: {},
+    experience: {},
+    careerGoal: {},
+  });
+
+  function handlechange(e, componentName) {
+    const name = e.target.name;
+    const value = e.target.value;
+    setRoadMapContent((prev) => {
+      return {
+        ...prev,
+        [componentName]: { ...prev[componentName], [name]: value },
+      };
+    });
+  }
 
   return (
     <SideBarContext.Provider value={{ sidebar, setSideBar }}>
@@ -31,10 +45,42 @@ export default function Dashboard() {
           <OpenSidebar onClick={() => setSideBar(!sidebar)} />
           <Sidebar />
           <Routes>
-            <Route path="page1" element={<PersonalInfo />} />
-            <Route path="page2" element={<Background />} />
-            <Route path="page3" element={<Experience />} />
-            <Route path="page4" element={<CareerGoal />} />
+            <Route
+              path="page1"
+              element={
+                <PersonalInfo
+                  roadMapContent={roadMapContent}
+                  handlechange={handlechange}
+                />
+              }
+            />
+            <Route
+              path="page2"
+              element={
+                <Background
+                  roadMapContent={roadMapContent}
+                  handlechange={handlechange}
+                />
+              }
+            />
+            <Route
+              path="page3"
+              element={
+                <Experience
+                  roadMapContent={roadMapContent}
+                  handlechange={handlechange}
+                />
+              }
+            />
+            <Route
+              path="page4"
+              element={
+                <CareerGoal
+                  roadMapContent={roadMapContent}
+                  handlechange={handlechange}
+                />
+              }
+            />
           </Routes>
         </FormContainer>
       </DashboardContainer>
@@ -44,7 +90,7 @@ export default function Dashboard() {
 
 const OpenSidebar = styled(TfiAngleDoubleRight)`
   //   margin-left: auto;
-  border: 2px black solid;
+  // border: 2px black solid;
   position: absolute;
   left: 0;
   top: 0;
@@ -52,7 +98,7 @@ const OpenSidebar = styled(TfiAngleDoubleRight)`
   padding-right: 10px;
   font-weight: 900;
   color: black;
-  @media screen and (min-width: 428px) {
+  @media screen and (min-width: 500px) {
     display: none;
   }
 `;

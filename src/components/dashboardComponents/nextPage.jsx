@@ -12,12 +12,17 @@ export default function NextPage() {
     nextpage = 4;
   } else {
     nextpage = page / 1 + 1;
-    console.log(nextpage);
+    // console.log(nextpage);
   }
   return (
     <Link to={`/dashboard/page${nextpage}`}>
-      <NextPageButton onClick={() => setSideBar(false)}>
-        {" "}
+      <NextPageButton
+        onClick={() => {
+          if (window.innerWidth < 500) {
+            setSideBar(false);
+          }
+        }}
+      >
         Next page
       </NextPageButton>
     </Link>

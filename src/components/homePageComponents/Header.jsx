@@ -9,7 +9,7 @@ function Header({ scroll }) {
   const currentLocation = location.includes("/dashboard")
     ? "dashboard"
     : "home";
-  console.log(currentLocation, location);
+  // console.log(currentLocation, location);
   let log;
   if (currentLocation == "home") {
     log = <GreenButton onClick={() => scroll()}>Log in</GreenButton>;

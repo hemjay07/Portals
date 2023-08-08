@@ -5,7 +5,8 @@ export const FormContainer = styled.div`
   //   padding: 1rem;
   position: relative;
   margin: auto;
-  width: 75%;
+  width: 90%;
+  max-width: 1000px;
   height: 70vh;
   background: #aae090;
   display: flex;
@@ -15,6 +16,7 @@ export const FormContainer = styled.div`
   @media screen and (max-width: 428px) {
     display: flex;
     width: 100%;
+    height: 85vh;
   }
 `;
 
@@ -24,4 +26,5 @@ export const DashboardContainer = styled.div`
   background-color: #020401;
   color: white;
   height: 100vh;
+  // background-color: white;
 `;

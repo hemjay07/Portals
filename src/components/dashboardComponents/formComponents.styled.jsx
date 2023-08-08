@@ -9,10 +9,12 @@ export const Container = styled.div`
   height: 100%;
   margin: auto;
   width: 60%;
+  // border: solid 2px red;
   //   background-color: grey;
-  @media screen and (max-width: 428px) {
+  @media screen and (max-width: 500px) {
     width: 90%;
     // background-color: blue;
+    overflow: scroll;
   }
 `;
 export const NextPageButton = styled.button`
@@ -21,11 +23,11 @@ export const NextPageButton = styled.button`
   bottom: 10px;
   right: 10px;
   background-color: #7fdb57;
-  border: black solid 1px;
+  // border: black solid 1px;
   border-radius: 10px;
   &:hover {
-    background-color: #7fdb57;
-    scale: 1.1;
+    background-color: #164602;
+    color: #fff;
   }
 `;
 
@@ -40,7 +42,7 @@ export const StyledLabel = styled.label`
     border: solid 1px black;
     border-radius: 10px;
   }
-  @media screen and (max-width: 428px) {
+  @media screen and (max-width: 500px) {
     input {
       width: 60%;
     }
