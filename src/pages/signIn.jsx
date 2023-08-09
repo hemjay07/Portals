@@ -23,7 +23,7 @@ export default function SignInButton() {
   useEffect(() => {
     setLoggedInUser(localStorage.getItem("email"));
   });
-  return <Button onClick={handleSignIn}>Sign in with google</Button>;
+  return <Button onClick={handleSignIn}>Sign in with Google</Button>;
 }
 
 const Button = styled.button`

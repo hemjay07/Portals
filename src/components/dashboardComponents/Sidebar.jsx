@@ -83,9 +83,10 @@ const StyledLink = styled(Link)`
   // justify-content: center;
   align-items: center;
   span {
-    padding: 5px;
-    border: solid black 2px;
-    border-radius: 100%;
-    color: black;
+    padding: 5px 10px;
+    border: solid var(--accentColor) 2px;
+    border-radius: 50%;
+    color: var(--accentColor);
+
   }
 `;

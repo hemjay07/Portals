@@ -29,6 +29,6 @@ const ActionTitle = styled.h3`
 `;
 const ActionParagraph = styled.p`
   font-size: 1.5rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.0rem;
   text-align: center;
 `;
