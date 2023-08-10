@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const FormContainer = styled.div`
   border: solid black 2px;
   //   padding: 1rem;
-  position: relative;
+  /* position: relative; */
   margin: auto;
   width: 90%;
   max-width: 1000px;
@@ -13,6 +13,7 @@ export const FormContainer = styled.div`
   flex-direction: row;
   border: solid 2px var(--secColor);
   border-radius: 10px;
+  outline: 2px solid red;
   @media screen and (max-width: 428px) {
     display: flex;
     width: 100%;

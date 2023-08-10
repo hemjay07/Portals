@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Container, StyledLabel } from "./formComponents.styled";
+import { Container, StyledLabel, StyledHeader, StyledParagraph, StyledDesc } from "./formComponents.styled";
 import NextPage from "./nextPage";
 
 export default function Experience({ roadMapContent, handlechange }) {
   // const [skills, setSkills] = useState();
   return (
     <Container>
-      <h1>Experience</h1>
-      <p>Here, you tell us all about your experience so far!</p>
+      <StyledHeader>Experience</StyledHeader>
+      <StyledParagraph>Here, you tell us all about your experience so far!</StyledParagraph>
       <StyledLabel>
         What have you learnt so far?
-        <br /> Put skills, languages, frameworks, tools you have learnt/used
+        <br /> 
+        <StyledDesc>Put skills, languages, frameworks, tools you have learnt/used
         here Sample: HTML, CSS, JavaScript, React Or: Interaction design
-        principles, Branding, typography and color theory, Figma
+        principles, Branding, typography and color theory, Figma </StyledDesc>
         <input
           name="whatHaveYouLearntSoFar"
           value={roadMapContent.experience.whatHaveYouLearntSoFar || ""}
@@ -25,9 +26,10 @@ export default function Experience({ roadMapContent, handlechange }) {
       <StyledLabel>
         What are you learning now?
         <br />
+        <StyledDesc>
         Put skills, languages, frameworks, tools you are learning now Sample:
         React Testing Library, TypeScript Or: User research and personas, Adobe
-        XD
+        XD </StyledDesc>
         <input
           name="whatAreYouLearningNow"
           value={roadMapContent.experience.whatAreYouLearningNow || ""}
@@ -38,11 +40,14 @@ export default function Experience({ roadMapContent, handlechange }) {
       </StyledLabel>
       <StyledLabel>
         Tell me about your work experience as it relates to a career in tech
-        <br /> Put your internships, and job roles (especially the last 2 with
-        some job experience) Sample: Junior Frontend Engineer at BigCabal Media
-        for 1 year, Frontend Developer Intern at HNG Internship for 3 months Or:
-        Network Technician at Sterling Bank for 1 year, IT Support/Quality
-        Assurance Analyst at FHI 360 for 4 years
+        <br /> 
+        <StyledDesc>
+          Put your internships, and job roles (especially the last 2 with
+          some job experience) Sample: Junior Frontend Engineer at BigCabal Media
+          for 1 year, Frontend Developer Intern at HNG Internship for 3 months Or:
+          Network Technician at Sterling Bank for 1 year, IT Support/Quality
+          Assurance Analyst at FHI 360 for 4 years
+        </StyledDesc>
         <input
           name="workExperience"
           value={roadMapContent.experience.workExperience || ""}
@@ -51,7 +56,7 @@ export default function Experience({ roadMapContent, handlechange }) {
           }}
         />
       </StyledLabel>{" "}
-      <button onClick={() => console.log(roadMapContent.experience)}></button>
+      {/* <button onClick={() => console.log(roadMapContent.experience)}></button> */}
       <NextPage />
     </Container>
   );
