@@ -1,12 +1,19 @@
 import React from "react";
-import { Container, StyledLabel } from "./formComponents.styled";
+import {
+  Container,
+  StyledLabel,
+  StyledHeader,
+  StyledParagraph,
+} from "./formComponents.styled";
 import NextPage from "./nextPage";
 
 export default function PersonalInfo({ roadMapContent, handlechange }) {
   return (
     <Container>
-      <h2>Personal Info</h2>
-      <p>Please fill in your name email address and location</p>
+      <StyledHeader>Personal Info</StyledHeader>
+      <StyledParagraph>
+        Please fill in your name, email address and location
+      </StyledParagraph>
       <StyledLabel>
         What's your full name?
         <input
@@ -30,7 +37,7 @@ export default function PersonalInfo({ roadMapContent, handlechange }) {
         />
       </StyledLabel>
       <StyledLabel>
-        Location(City, Country)
+        Location (City, Country)
         <input
           value={roadMapContent.personalInfo.location || ""}
           name="location"

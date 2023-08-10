@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   padding-top: 2rem;
-  border-right: solid 1px black;
+  border-right: solid 1px var(--accentColor);
   width: 20%;
   height: 100%;
   // background-color: red;
@@ -17,6 +17,6 @@ export const Wrapper = styled.div`
     border-right: solid 3px #7fdb57;
   }
   p {
-    color: black;
+    color: var(--textColor);
   }
 `;

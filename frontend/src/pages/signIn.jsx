@@ -10,7 +10,7 @@ export default function SignInButton() {
   const navigate = useNavigate();
   function handleSignIn() {
     if (loggedInUser) {
-      navigate("/dashboard");
+      navigate("/dashboard/page1");
     } else {
       signInWithPopup(auth, authProvider).then((data) => {
         console.log(data.user.email);
@@ -23,7 +23,7 @@ export default function SignInButton() {
   useEffect(() => {
     setLoggedInUser(localStorage.getItem("email"));
   });
-  return <Button onClick={handleSignIn}>Sign in with google</Button>;
+  return <Button onClick={handleSignIn}>Sign in with Google</Button>;
 }
 
 const Button = styled.button`

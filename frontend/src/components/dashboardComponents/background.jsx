@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 // import { Container } from "./formComponents.styled";
 import NextPage from "./nextPage";
-import { Container, StyledLabel } from "./formComponents.styled";
+import {
+  Container,
+  StyledLabel,
+  StyledHeader,
+  StyledParagraph,
+  StyledDesc,
+  StyledRadio,
+  StyledRadioHead,
+} from "./formComponents.styled";
 const techDivisions = [
   { label: "", value: "" },
   { label: "Design", value: "design" },
@@ -22,13 +30,17 @@ export default function Background({ roadMapContent, handlechange }) {
 
   return (
     <Container>
-      <h2>Background</h2>
-      <p>Tell us about your background</p>
+      <StyledHeader>Background</StyledHeader>
+      <StyledParagraph>Tell us about your background</StyledParagraph>
       <StyledLabel>
         What is your current role?
-        <br /> Please include your title and company. For example, Microbiology
-        student at University of Ibadan, Product Designer at Softcom Limited,
-        Unemployed
+        <br />
+        <StyledDesc>
+          Please include your title and company.
+          <br />
+          For example, Microbiology student at University of Ibadan or Product
+          Designer at Softcom Limited or Unemployed
+        </StyledDesc>
         <input
           type="text"
           name="whatIsYourCurrentRole"
@@ -59,50 +71,59 @@ export default function Background({ roadMapContent, handlechange }) {
         </select>
       </StyledLabel>
 
-      <label>
-        <input
-          value="learning"
-          name="status"
-          type="radio"
-          onChange={(e) => {
-            handlechange(e, "background");
-          }}
-        />
-        Learning
-      </label>
-      <label>
-        <input
-          value="looking for your first job/internship"
-          name="status"
-          type="radio"
-          onChange={(e) => {
-            handlechange(e, "background");
-          }}
-        />
-        looking for your first job/internship
-      </label>
-      <label>
-        <input
-          value="Experienced but seekign promotion"
-          name="status"
-          type="radio"
-          onChange={(e) => {
-            handlechange(e, "background");
-          }}
-        />
-        Experienced but deekign promotion
-      </label>
-      <label>
-        <input
-          value="Experienced but seeking an entirely new role"
-          name="status"
-          type="radio"
-          onChange={(e) => {
-            handlechange(e, "background");
-          }}
-        />
-        Experienced but seeking an entirely new role
-      </label>
+      <StyledRadio>
+        <StyledRadioHead>
+          Where are you in your tech career now?
+        </StyledRadioHead>
+        <label>
+          <input
+            value="learning"
+            name="status"
+            type="radio"
+            onChange={(e) => {
+              handlechange(e, "background");
+            }}
+          />
+          Learning
+        </label>
+
+        <label>
+          <input
+            value="first job"
+            name="status"
+            type="radio"
+            onChange={(e) => {
+              handlechange(e, "background");
+            }}
+          />
+          Looking for your first job/internship
+        </label>
+
+        <label>
+          <input
+            value="seeking promotion"
+            name="status"
+            type="radio"
+            onChange={(e) => {
+              handlechange(e, "background");
+            }}
+          />
+          Experienced but seeking promotion
+        </label>
+
+        <label>
+          <input
+            value="new role"
+            name="status"
+            type="radio"
+            onChange={(e) => {
+              handlechange(e, "background");
+            }}
+          />
+          Experienced but seeking an entirely new role
+        </label>
+      </StyledRadio>
+      {/* <button onClick={() => console.log(roadMapContent)}></button> */}
 
       <NextPage />
     </Container>
