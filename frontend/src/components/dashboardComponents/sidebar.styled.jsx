@@ -4,11 +4,12 @@ export const Wrapper = styled.div`
   padding-top: 2rem;
   border-right: solid 1px var(--accentColor);
   width: 20%;
-  height: 100%;
+  height: inherit;
   // background-color: red;
   display: flex;
   flex-direction: column;
   gap: 3rem;
+
   @media screen and (max-width: 500px) {
     position: absolute;
     top: 0;

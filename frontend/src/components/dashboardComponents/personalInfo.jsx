@@ -47,6 +47,7 @@ export default function PersonalInfo({ roadMapContent, handlechange }) {
           }}
         />
       </StyledLabel>
+      {/* <button onClick={() => console.log(roadMapContent.personalInfo)}></button> */}
       <NextPage />
     </Container>
   );
