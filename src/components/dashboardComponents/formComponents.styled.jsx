@@ -11,7 +11,6 @@ export const Container = styled.div`
   /* gap: 1rem; */
   margin: 0 auto;
   width: 70%;
-  outline: 2px solid pink;
 
   @media screen and (max-width: 500px) {
     width: 90%;
