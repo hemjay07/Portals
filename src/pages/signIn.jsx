@@ -10,7 +10,7 @@ export default function SignInButton() {
   const navigate = useNavigate();
   function handleSignIn() {
     if (loggedInUser) {
-      navigate("/dashboard");
+      navigate("/dashboard/page1");
     } else {
       signInWithPopup(auth, authProvider).then((data) => {
         console.log(data.user.email);
