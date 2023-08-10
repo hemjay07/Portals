@@ -43,7 +43,8 @@ export default function Sidebar() {
         <Wrapper>
           <CloseSidebar onClick={handleClick} />
           <StyledLink to="/dashboard/page1" onClick={() => handleClick()}>
-            <span>1</span> <p>Personal Info</p>
+            <span>1</span> 
+            <p>Personal Info</p>
           </StyledLink>
           <StyledLink to="/dashboard/page2" onClick={() => handleClick()}>
             <span>2</span>
@@ -55,8 +56,7 @@ export default function Sidebar() {
           </StyledLink>
           <StyledLink to="/dashboard/page4" onClick={() => handleClick()}>
             <span>4</span>
-
-            <p>Career Goals</p>
+            <p>Career Goal</p>
           </StyledLink>
         </Wrapper>
       )}{" "}
@@ -77,16 +77,27 @@ const CloseSidebar = styled(TfiAngleDoubleLeft)`
 
 const StyledLink = styled(Link)`
   // border: red 2px solid;
-  gap: 0.5rem;
+  gap: 0.8rem;
   text-decoration: none;
   display: flex;
-  // justify-content: center;
+  justify-content: center;
   align-items: center;
+
+  &:hover {
+    scale: 1.1;
+  }
+  
   span {
     padding: 5px 10px;
     border: solid var(--accentColor) 2px;
     border-radius: 50%;
     color: var(--accentColor);
 
+    &:hover {
+      background-color: var(--accentColor);
+      color: var(--bgColor);
+    }
   }
+
+  
 `;
