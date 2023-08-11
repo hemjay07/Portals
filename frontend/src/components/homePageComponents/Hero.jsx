@@ -59,7 +59,7 @@ const HeroHighlight = styled.span`
 const HeroText = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 30px;
   height: 300px;
   padding: 60px;
   text-align: center;
@@ -95,7 +95,7 @@ const HeroHeader = styled.h1`
 
 const HeroParagraph = styled.p`
   color: #ffffff;
-  margin-bottom: 10px;
+  /* margin-bottom: 5px; */
   font-size: 1.2rem;
 `;
 
@@ -121,12 +121,17 @@ const HeroButton = styled.button`
   align-self: center;
   border: none;
   border-radius: 10px;
-  font-size: 1rem;
+  font-size: 2rem;
   cursor: pointer;
 
   &:hover {
     background-color: #164602;
     color: #fff;
+  }
+
+  @media screen and (max-width: 428px) {
+    padding: 6 12px;
+    font-size: 1.5rem;
   }
 `;
 

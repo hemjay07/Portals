@@ -84,7 +84,7 @@ export const StyledLabel = styled.label`
   @media screen and (max-width: 500px) {
     input,
     select {
-      width: 60%;
+      width: 80%;
     }
   }
 `;
@@ -113,7 +113,7 @@ export const StyledRadio = styled.p`
     margin-top: 10px;
     display: flex;
     gap: 0.4rem;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 `;
 

@@ -40,8 +40,7 @@ export default function Background({ roadMapContent, handlechange }) {
         <StyledDesc>
           Please include your title and company.
           <br />
-          For example, Microbiology student at University of Ibadan or Product
-          Designer at Softcom Limited or Unemployed
+          For example, Microbiology student at University of Ibadan {window.innerWidth < 468 ? "" : "or Product Designer at Softcom Limited or Unemployed"}
         </StyledDesc>
         <input
           type="text"
