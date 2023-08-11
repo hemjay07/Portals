@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import Navigators from "./navigators";
 import NextPage from "./nextPage";
 import { styled } from "styled-components";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
 import {
   Container,
   StyledLabel,
@@ -28,10 +30,25 @@ const techDivisions = [
   { label: "QA", value: "qa" },
 ];
 export default function Background({ roadMapContent, handlechange }) {
-  const [selectedOption, setSelectedOption] = useState();
+  const location = useLocation();
+  const page = location.pathname.slice(-1);
+  const navigate = useNavigate();
+  let nextpage;
+  if (page == 4) {
+    nextpage = 4;
+  }
+  if (page != 4) {
+    nextpage = page / 1 + 1;
+  }
+
+  function handleClick(e) {
+    e.preventDefault();
+    console.log("form");
+    navigate(`/dashboard/page${nextpage}`);
+  }
 
   return (
-    <Container>
+    <Container onSubmit={handleClick}>
       <StyledHeader>Background</StyledHeader>
       <StyledParagraph>Tell us about your background</StyledParagraph>
       <StyledLabel>
@@ -40,17 +57,20 @@ export default function Background({ roadMapContent, handlechange }) {
         <StyledDesc>
           Please include your title and company.
           <br />
-          For example, Microbiology student at University of Ibadan {window.innerWidth < 468 ? "" : "or Product Designer at Softcom Limited or Unemployed"}
+          For example, Microbiology student at University of Ibadan{" "}
+          {window.innerWidth < 468
+            ? ""
+            : "or Product Designer at Softcom Limited or Unemployed"}
         </StyledDesc>
         <input
           type="text"
+          required
           placeholder="Microbiology student at University of Lagos"
           name="whatIsYourCurrentRole"
           value={roadMapContent.background.whatIsYourCurrentRole || ""}
           onChange={(e) => {
             handlechange(e, "background");
           }}
-    
         />
       </StyledLabel>
       <StyledLabel>
@@ -81,6 +101,7 @@ export default function Background({ roadMapContent, handlechange }) {
         <label>
           <input
             value="learning"
+            required
             name="status"
             type="radio"
             onChange={(e) => {
@@ -93,6 +114,7 @@ export default function Background({ roadMapContent, handlechange }) {
         <label>
           <input
             value="first job"
+            required
             name="status"
             type="radio"
             onChange={(e) => {
@@ -106,6 +128,7 @@ export default function Background({ roadMapContent, handlechange }) {
           <input
             value="seeking promotion"
             name="status"
+            required
             type="radio"
             onChange={(e) => {
               handlechange(e, "background");
@@ -118,6 +141,7 @@ export default function Background({ roadMapContent, handlechange }) {
           <input
             value="new role"
             name="status"
+            required
             type="radio"
             onChange={(e) => {
               handlechange(e, "background");
@@ -134,12 +158,11 @@ export default function Background({ roadMapContent, handlechange }) {
 }
 
 const StyledOption = styled.option`
-&:checked {
-  background-color: var(--accentColor);
-}
+  &:checked {
+    background-color: var(--accentColor);
+  }
 
-&:hover {
-  background-color: var(--accentColor);
-}
-
-`
+  &:hover {
+    background-color: var(--accentColor);
+  }
+`;
