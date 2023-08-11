@@ -2,14 +2,44 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   color: var(--textColor);
-  padding-block: 15px;
+  padding-block: 20px;
   padding-left: 10px;
+  padding-right: 20px;
+  /* height: fit-content; */
+  /* min-height: 60vh; */
+  height: 78vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+  width: 6px;
+  }
+
+/* Track */
+  &::-webkit-scrollbar-track {
+  background: #131a0f; 
+  border-radius: 5px;
+  margin-block: 3px;
+  }
+ 
+/* Handle */
+  &::-webkit-scrollbar-thumb {
+  background:#449720 ; 
+  border-radius: 5px;
+  }
+
+/* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+  }
 
   /* padding-left: 0.5rem; */
   display: flex;
   flex-direction: column;
+  /* justify-content: center; */
   /* gap: 1rem; */
-  margin: 0 auto;
+  margin: 0 0 0 auto ;
+
   width: 70%;
 
   @media screen and (max-width: 500px) {
@@ -19,10 +49,11 @@ export const Container = styled.div`
 export const NextPageButton = styled.button`
   padding: 10px;
   float: right;
-  margin-right: 10px;
+  /* margin-left: 40px; */
   background-color: #7fdb57;
   border-radius: 10px;
   border: none;
+  margin-bottom: 20px;
 
   &:hover {
     background-color: #164602;

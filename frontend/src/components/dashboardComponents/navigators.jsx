@@ -60,13 +60,14 @@ const NavigatorButtons = styled.div`
 `;
 const GoBackButton = styled.span`
   margin-top: 10px;
-  float: bottom;
+  /* float: bottom; */
   // border: 2px red solid;
   color: #7fdb57;
-
   font-size: 20px;
+
   &:hover {
     cursor: pointer;
+    font-size: 22px;
   }
 `;
 
@@ -82,5 +83,7 @@ const NextPageButton = styled.button`
   &:hover {
     background-color: #164602;
     color: #fff;
+    scale: 1.1;
+    cursor: pointer;
   }
 `;
