@@ -72,7 +72,7 @@ export default function Experience({ roadMapContent, handlechange }) {
             handlechange(e, "experience");
           }}
           rows = {3}
-          placeholder={window.innerWidth < 468 ? "Junior Frontend Engineer at BigCabal Media for 1 year " : "Junior Frontend Engineer at BigCabal Media for 1 year, Frontend Developer Intern at HNG Internship for months"}
+          placeholder={window.innerWidth < 468 ? "Junior Frontend Engineer at BigCabal Media for 1 year " : "Junior Frontend Engineer at BigCabal Media for 1 year, Frontend Developer Intern at HNG Internship for 3 months"}
         />
       </StyledLabel>{" "}
       {/* <button onClick={() => console.log(roadMapContent.experience)}></button> */}
