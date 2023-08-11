@@ -1,28 +1,28 @@
-import React, { useContext, useEffect } from "react";
-import { Wrapper } from "./sidebar.styled";
-import { Link } from "react-router-dom";
+import React from "react";
 import styled from "styled-components";
+import { Link, useLocation } from "react-router-dom";
+
 export default function Sidebar() {
-  return (
-    <Wrapper>
-      <StyledLink to="/dashboard/page1">
-        <span>1</span>
-        <p>Personal Info</p>
+  const location = useLocation();
+  const page = location.pathname.slice(-1);
+  const sections = ["Personal Info", "Background", "Experience", "Career Goal"];
+  const sectionElements = sections.map((section, index) => {
+    index = index + 1;
+    return (
+      <StyledLink key={index} to={`/dashboard/page${index}`}>
+        {/* I wrote this code so that the active section(the form the user is currently in) can be higlighted differently */}
+        <span
+          style={{
+            color: index == page ? `var(--bgColor)` : `var(--accentColor)`,
+            backgroundColor:
+              index == page ? `var(--accentColor)` : `var(--bgColor)`,
+          }}
+        >{`${index}`}</span>
+        <p>{section}</p>
       </StyledLink>
-      <StyledLink to="/dashboard/page2">
-        <span>2</span>
-        <p>Background</p>
-      </StyledLink>
-      <StyledLink to="/dashboard/page3">
-        <span>3</span>
-        <p>Experience</p>
-      </StyledLink>
-      <StyledLink to="/dashboard/page4">
-        <span>4</span>
-        <p>Career Goal</p>
-      </StyledLink>
-    </Wrapper>
-  );
+    );
+  });
+  return <Wrapper>{sectionElements}</Wrapper>;
 }
 
 const StyledLink = styled(Link)`
@@ -47,5 +47,22 @@ const StyledLink = styled(Link)`
       background-color: var(--accentColor);
       color: var(--bgColor);
     }
+  }
+`;
+const Wrapper = styled.div`
+  padding-top: 2rem;
+  border-right: solid 1px var(--accentColor);
+  width: 25%;
+  max-height: 100%;
+  // background-color: red;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
+  p {
+    color: var(--textColor);
   }
 `;
