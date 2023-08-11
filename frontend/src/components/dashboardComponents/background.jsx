@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-// import { Container } from "./formComponents.styled";
 import Navigators from "./navigators";
-import NextPage from "./nextPage";
 import { styled } from "styled-components";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import {
   Container,

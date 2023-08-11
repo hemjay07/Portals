@@ -5,9 +5,8 @@ import {
   StyledHeader,
   StyledParagraph,
 } from "./formComponents.styled";
-import NextPage from "./nextPage";
 import Navigators from "./navigators";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function PersonalInfo({ roadMapContent, handlechange }) {
   const location = useLocation();
