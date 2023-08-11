@@ -2,6 +2,7 @@ import React, { useState } from "react";
 // import { Container } from "./formComponents.styled";
 import Navigators from "./navigators";
 import NextPage from "./nextPage";
+import { styled } from "styled-components";
 import {
   Container,
   StyledLabel,
@@ -44,11 +45,13 @@ export default function Background({ roadMapContent, handlechange }) {
         </StyledDesc>
         <input
           type="text"
+          placeholder="Microbiology student at University of Lagos"
           name="whatIsYourCurrentRole"
           value={roadMapContent.background.whatIsYourCurrentRole || ""}
           onChange={(e) => {
             handlechange(e, "background");
           }}
+    
         />
       </StyledLabel>
       <StyledLabel>
@@ -64,9 +67,9 @@ export default function Background({ roadMapContent, handlechange }) {
         >
           {techDivisions.map((option, index) => {
             return (
-              <option key={index} value={option.value}>
+              <StyledOption key={index} value={option.value}>
                 {option.label}
-              </option>
+              </StyledOption>
             );
           })}
         </select>
@@ -130,3 +133,14 @@ export default function Background({ roadMapContent, handlechange }) {
     </Container>
   );
 }
+
+const StyledOption = styled.option`
+&:checked {
+  background-color: var(--accentColor);
+}
+
+&:hover {
+  background-color: var(--accentColor);
+}
+
+`

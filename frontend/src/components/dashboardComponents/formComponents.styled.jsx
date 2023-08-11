@@ -5,8 +5,6 @@ export const Container = styled.div`
   padding-block: 20px;
   padding-left: 10px;
   padding-right: 20px;
-  /* height: fit-content; */
-  /* min-height: 60vh; */
   height: 78vh;
   overflow-y: auto;
   overflow-x: hidden;
@@ -69,8 +67,8 @@ export const StyledLabel = styled.label`
   font-size: 1rem;
 
   input,
-  select {
-    width: 70%;
+  select, textarea {
+    width: 80%;
     padding: 0.8rem;
     border: none;
     border-radius: 10px;
@@ -81,6 +79,7 @@ export const StyledLabel = styled.label`
       outline: solid 2px var(--accentColor);
     }
   }
+
 
   @media screen and (max-width: 500px) {
     input,

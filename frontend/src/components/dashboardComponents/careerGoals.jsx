@@ -30,6 +30,7 @@ export default function CareerGoal({ roadMapContent, handlechange }) {
           onChange={(e) => {
             handlechange(e, "careerGoal");
           }}
+          placeholder="Become a junior-level frontend developer"
         />
       </StyledLabel>
       <Navigators />
