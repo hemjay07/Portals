@@ -23,8 +23,8 @@ export default function Experience({ roadMapContent, handlechange }) {
         <StyledDesc>
           Put skills, languages, frameworks, tools you have learnt/used here
           <br />
-          Sample: HTML, CSS, JavaScript, React Or Interaction design
-          principles, Branding, typography and color theory, Figma{" "}
+          Sample: HTML, CSS, JavaScript, React 
+          {window.innerWidth < 468 ? "" : "Or Interaction design principles, Branding, typography and color theory, Figma"}{" "}
         </StyledDesc>
         <textarea
           name="whatHaveYouLearntSoFar"
@@ -43,8 +43,7 @@ export default function Experience({ roadMapContent, handlechange }) {
           Put skills, languages, frameworks, tools you are learning now 
           <br />
           Sample:
-          React Testing Library, TypeScript Or User research and personas,
-          Adobe XD{" "}
+          React Testing Library, TypeScript {window.innerWidth < 468 ? "" : "Or User research and personas, Adobe XD"}{" "}
         </StyledDesc>
         <textarea
           name="whatAreYouLearningNow"
@@ -64,9 +63,7 @@ export default function Experience({ roadMapContent, handlechange }) {
           job experience) 
           <br />
           Sample: Junior Frontend Engineer at BigCabal Media for
-          1 year, Frontend Developer Intern at HNG Internship for 3 months Or 
-          Network Technician at Sterling Bank for 1 year, IT Support/Quality
-          Assurance Analyst at FHI 360 for 4 years
+          1 year, Frontend Developer Intern at HNG Internship for 3 months {window.innerWidth < 468 ? "" : "Or Network Technician at Sterling Bank for 1 year, IT Support/Quality Assurance Analyst at FHI 360 for 4 years"}
         </StyledDesc>
         <textarea
           name="workExperience"
@@ -75,7 +72,7 @@ export default function Experience({ roadMapContent, handlechange }) {
             handlechange(e, "experience");
           }}
           rows = {3}
-          placeholder="Junior Frontend Engineer at BigCabal Media for 1 year, Frontend Developer Intern at HNG Internship for 3 months"
+          placeholder={window.innerWidth < 468 ? "Junior Frontend Engineer at BigCabal Media for 1 year " : "Junior Frontend Engineer at BigCabal Media for 1 year, Frontend Developer Intern at HNG Internship for months"}
         />
       </StyledLabel>{" "}
       {/* <button onClick={() => console.log(roadMapContent.experience)}></button> */}
