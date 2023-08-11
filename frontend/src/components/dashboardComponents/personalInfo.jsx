@@ -6,6 +6,7 @@ import {
   StyledParagraph,
 } from "./formComponents.styled";
 import NextPage from "./nextPage";
+import Navigators from "./navigators";
 
 export default function PersonalInfo({ roadMapContent, handlechange }) {
   return (
@@ -48,7 +49,7 @@ export default function PersonalInfo({ roadMapContent, handlechange }) {
         />
       </StyledLabel>
       {/* <button onClick={() => console.log(roadMapContent.personalInfo)}></button> */}
-      <NextPage />
+      <Navigators />
     </Container>
   );
 }

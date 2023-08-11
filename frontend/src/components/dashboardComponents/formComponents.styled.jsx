@@ -23,7 +23,7 @@ export const NextPageButton = styled.button`
   background-color: #7fdb57;
   border-radius: 10px;
   border: none;
-  
+
   &:hover {
     background-color: #164602;
     color: #fff;
@@ -37,8 +37,8 @@ export const StyledLabel = styled.label`
   margin-bottom: 20px;
   font-size: 1rem;
 
-
-  input, select {
+  input,
+  select {
     width: 70%;
     padding: 0.8rem;
     border: none;
@@ -50,9 +50,10 @@ export const StyledLabel = styled.label`
       outline: solid 2px var(--accentColor);
     }
   }
-  
+
   @media screen and (max-width: 500px) {
-    input, select {
+    input,
+    select {
       width: 60%;
     }
   }
@@ -61,16 +62,16 @@ export const StyledLabel = styled.label`
 export const StyledHeader = styled.h2`
   font-size: 2rem;
   margin-bottom: 10px;
-`
+`;
 
 export const StyledParagraph = styled.p`
   font-size: 1.1rem;
   margin-bottom: 20px;
-`
+`;
 
 export const StyledDesc = styled.span`
   font-size: 0.8rem;
-`
+`;
 
 export const StyledRadio = styled.p`
   margin-bottom: 20px;
@@ -78,16 +79,14 @@ export const StyledRadio = styled.p`
   flex-direction: column;
   accent-color: var(--accentColor);
 
-
   label {
     margin-top: 10px;
     display: flex;
     gap: 0.4rem;
     font-size: 0.9rem;
-
   }
 `;
 
-export const StyledRadioHead = styled.p`
+export const StyledRadioHead = styled.span`
   font-size: 1rem;
-`
+`;

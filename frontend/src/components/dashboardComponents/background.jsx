@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 // import { Container } from "./formComponents.styled";
+import Navigators from "./navigators";
 import NextPage from "./nextPage";
 import {
   Container,
@@ -125,7 +126,7 @@ export default function Background({ roadMapContent, handlechange }) {
       </StyledRadio>
       {/* <button onClick={() => console.log(roadMapContent)}></button> */}
 
-      <NextPage />
+      <Navigators />
     </Container>
   );
 }

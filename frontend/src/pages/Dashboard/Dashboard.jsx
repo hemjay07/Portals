@@ -7,16 +7,16 @@ import PersonalInfo from "../../components/dashboardComponents/personalInfo";
 import { TfiAngleDoubleRight } from "react-icons/tfi";
 import { IoLogoXbox } from "react-icons/io";
 import styled from "styled-components";
-import { loggedInUserContext } from "../../App";
+// import { loggedInUserContext } from "../../App";
 import Header from "../../components/homePageComponents/Header";
 
 import { Link, Routes, Route } from "react-router-dom";
 import { DashboardContainer, FormContainer } from "./Dashboard.styled";
-export const SideBarContext = createContext();
+// export const SideBarContext = createContext();
 // export const roadMapContent = createContext
 
 export default function Dashboard() {
-  const [sidebar, setSideBar] = useState(true);
+  // const [sidebar, setSideBar] = useState(true);
   // const { loggedInUser } = useContext(loggedInUserContext);
   const [roadMapContent, setRoadMapContent] = useState({
     personalInfo: {},
@@ -37,71 +37,55 @@ export default function Dashboard() {
   }
 
   return (
-    <SideBarContext.Provider value={{ sidebar, setSideBar }}>
-      <DashboardContainer>
-        <Header />
+    // <SideBarContext.Provider value={{ sidebar, setSideBar }}>
+    <DashboardContainer>
+      <Header />
 
-        <FormContainer>
-          <OpenSidebar onClick={() => setSideBar(!sidebar)} />
-          <Sidebar />
-          <Routes>
-            <Route
-              path="page1"
-              element={
-                <PersonalInfo
-                  roadMapContent={roadMapContent}
-                  handlechange={handlechange}
-                />
-              }
-            />
-            <Route
-              path="page2"
-              element={
-                <Background
-                  roadMapContent={roadMapContent}
-                  handlechange={handlechange}
-                />
-              }
-            />
-            <Route
-              path="page3"
-              element={
-                <Experience
-                  roadMapContent={roadMapContent}
-                  handlechange={handlechange}
-                />
-              }
-            />
-            <Route
-              path="page4"
-              element={
-                <CareerGoal
-                  roadMapContent={roadMapContent}
-                  handlechange={handlechange}
-                />
-              }
-            />
-          </Routes>
-        </FormContainer>
-      </DashboardContainer>
-    </SideBarContext.Provider>
+      <FormContainer>
+        {/* <OpenSidebar onClick={() => setSideBar(!sidebar)} /> */}
+        <Sidebar />
+        <Routes>
+          <Route
+            path="page1"
+            element={
+              <PersonalInfo
+                roadMapContent={roadMapContent}
+                handlechange={handlechange}
+              />
+            }
+          />
+          <Route
+            path="page2"
+            element={
+              <Background
+                roadMapContent={roadMapContent}
+                handlechange={handlechange}
+              />
+            }
+          />
+          <Route
+            path="page3"
+            element={
+              <Experience
+                roadMapContent={roadMapContent}
+                handlechange={handlechange}
+              />
+            }
+          />
+          <Route
+            path="page4"
+            element={
+              <CareerGoal
+                roadMapContent={roadMapContent}
+                handlechange={handlechange}
+              />
+            }
+          />
+        </Routes>
+      </FormContainer>
+    </DashboardContainer>
   );
 }
-
-const OpenSidebar = styled(TfiAngleDoubleRight)`
-  //   margin-left: auto;
-  // border: 2px black solid;
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-size: 2rem;
-  padding-right: 10px;
-  font-weight: 900;
-  color: black;
-  @media screen and (min-width: 500px) {
-    display: none;
-  }
-`;
 
 const Logo = styled(IoLogoXbox)`
   font-size: 36px;

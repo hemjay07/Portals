@@ -11,11 +11,7 @@ export const Wrapper = styled.div`
   gap: 3rem;
 
   @media screen and (max-width: 500px) {
-    position: absolute;
-    top: 0;
-    width: 60%;
-    background-color: #7fdb57;
-    border-right: solid 3px #7fdb57;
+    display: none;
   }
   p {
     color: var(--textColor);

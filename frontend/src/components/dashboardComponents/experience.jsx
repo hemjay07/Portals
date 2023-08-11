@@ -8,6 +8,7 @@ import {
   StyledDesc,
 } from "./formComponents.styled";
 import NextPage from "./nextPage";
+import Navigators from "./navigators";
 
 export default function Experience({ roadMapContent, handlechange }) {
   return (
@@ -67,7 +68,7 @@ export default function Experience({ roadMapContent, handlechange }) {
         />
       </StyledLabel>{" "}
       {/* <button onClick={() => console.log(roadMapContent.experience)}></button> */}
-      <NextPage />
+      <Navigators />
     </Container>
   );
 }
