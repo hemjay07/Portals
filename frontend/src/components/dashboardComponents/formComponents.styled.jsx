@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.form`
   color: var(--textColor);
   padding-block: 20px;
   padding-left: 10px;
@@ -10,25 +10,25 @@ export const Container = styled.div`
   overflow-x: hidden;
 
   &::-webkit-scrollbar {
-  width: 6px;
+    width: 6px;
   }
 
-/* Track */
+  /* Track */
   &::-webkit-scrollbar-track {
-  background: #131a0f; 
-  border-radius: 5px;
-  margin-block: 3px;
-  }
- 
-/* Handle */
-  &::-webkit-scrollbar-thumb {
-  background:#449720 ; 
-  border-radius: 5px;
+    background: #131a0f;
+    border-radius: 5px;
+    margin-block: 3px;
   }
 
-/* Handle on hover */
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #449720;
+    border-radius: 5px;
+  }
+
+  /* Handle on hover */
   &::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+    background: #555;
   }
 
   /* padding-left: 0.5rem; */
@@ -36,7 +36,7 @@ export const Container = styled.div`
   flex-direction: column;
   /* justify-content: center; */
   /* gap: 1rem; */
-  margin: 0 0 0 auto ;
+  margin: 0 0 0 auto;
 
   width: 70%;
 
@@ -67,7 +67,8 @@ export const StyledLabel = styled.label`
   font-size: 1rem;
 
   input,
-  select, textarea {
+  select,
+  textarea {
     width: 80%;
     padding: 0.8rem;
     border: none;
@@ -79,7 +80,6 @@ export const StyledLabel = styled.label`
       outline: solid 2px var(--accentColor);
     }
   }
-
 
   @media screen and (max-width: 500px) {
     input,

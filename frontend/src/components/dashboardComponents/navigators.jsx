@@ -1,34 +1,21 @@
 import React, { useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 // import { NextPageButton } from "./formComponents.styled";
 import styled from "styled-components";
 
 export default function Navigators({ disabled }) {
   const location = useLocation();
   const page = location.pathname.slice(-1);
-  let nextpage;
+  const navigate = useNavigate();
   let prevpage;
-  if (disabled) {
-    nextpage = page;
-  } else {
-    if (page == 4) {
-      nextpage = 4;
-    }
-    if (page != 4) {
-      nextpage = page / 1 + 1;
-    }
-    if (page == 1) {
-      prevpage = undefined;
-    }
-    if (page != 1) {
-      prevpage = page / 1 - 1;
-    }
+
+  if (page == 1) {
+    prevpage = undefined;
   }
-  function handleClick(e) {
-    if (disabled) {
-      e.preventDefault();
-    }
+  if (page != 1) {
+    prevpage = page / 1 - 1;
   }
+
   return (
     <NavigatorButtons>
       {prevpage ? (
@@ -38,11 +25,9 @@ export default function Navigators({ disabled }) {
       ) : (
         <div> </div>
       )}
-      <StyledLink onClick={handleClick} to={`/dashboard/page${nextpage}`}>
-        <NextPageButton disabled={disabled}>{`${
-          page == 4 ? "Submit" : "Next Page"
-        }`}</NextPageButton>
-      </StyledLink>
+      <NextPageButton type="submit">{`${
+        page == 4 ? "Submit" : "Next Page"
+      }`}</NextPageButton>
     </NavigatorButtons>
   );
 }

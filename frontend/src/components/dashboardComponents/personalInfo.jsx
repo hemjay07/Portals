@@ -7,10 +7,27 @@ import {
 } from "./formComponents.styled";
 import NextPage from "./nextPage";
 import Navigators from "./navigators";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function PersonalInfo({ roadMapContent, handlechange }) {
+  const location = useLocation();
+  const page = location.pathname.slice(-1);
+  const navigate = useNavigate();
+  let nextpage;
+  if (page == 4) {
+    nextpage = 4;
+  }
+  if (page != 4) {
+    nextpage = page / 1 + 1;
+  }
+
+  function handleClick(e) {
+    e.preventDefault();
+    console.log("form");
+    navigate(`/dashboard/page${nextpage}`);
+  }
   return (
-    <Container>
+    <Container onSubmit={handleClick}>
       <StyledHeader>Personal Info</StyledHeader>
       <StyledParagraph>
         Please fill in your name, email address and location
@@ -21,6 +38,7 @@ export default function PersonalInfo({ roadMapContent, handlechange }) {
           name="fullName"
           value={roadMapContent.personalInfo.fullname}
           type="text"
+          required
           onChange={(e) => {
             handlechange(e, "personalInfo");
           }}
@@ -32,6 +50,7 @@ export default function PersonalInfo({ roadMapContent, handlechange }) {
           value={roadMapContent.personalInfo.email || ""}
           type="email"
           name="email"
+          required
           onChange={(e) => {
             handlechange(e, "personalInfo");
           }}
@@ -43,6 +62,7 @@ export default function PersonalInfo({ roadMapContent, handlechange }) {
           value={roadMapContent.personalInfo.location || ""}
           name="location"
           type="text"
+          required
           onChange={(e) => {
             handlechange(e, "personalInfo");
           }}

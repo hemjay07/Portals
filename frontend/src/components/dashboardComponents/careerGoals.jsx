@@ -9,10 +9,27 @@ import {
 } from "./formComponents.styled";
 import NextPage from "./nextPage";
 import Navigators from "./navigators";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function CareerGoal({ roadMapContent, handlechange }) {
+  const location = useLocation();
+  const page = location.pathname.slice(-1);
+  const navigate = useNavigate();
+  let nextpage;
+  if (page == 4) {
+    nextpage = 4;
+  }
+  if (page != 4) {
+    nextpage = page / 1 + 1;
+  }
+
+  function handleClick(e) {
+    e.preventDefault();
+    console.log("form");
+    navigate(`/dashboard/page${nextpage}`);
+  }
   return (
-    <Container>
+    <Container onSubmit={handleClick}>
       <StyledHeader>Career Goals</StyledHeader>
       <StyledParagraph>
         Here you tell us who you'd like to be career-wise.
@@ -26,6 +43,7 @@ export default function CareerGoal({ roadMapContent, handlechange }) {
         </StyledDesc>
         <input
           type="text"
+          required
           name="careerGoal"
           onChange={(e) => {
             handlechange(e, "careerGoal");
