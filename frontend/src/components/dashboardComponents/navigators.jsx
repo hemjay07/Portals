@@ -26,7 +26,7 @@ export default function Navigators({ disabled }) {
         <div> </div>
       )}
       <NextPageButton type="submit">{`${
-        page == 4 ? "Submit" : "Next Page"
+        page == 4 ? "Get your roadmap" : "Next Page"
       }`}</NextPageButton>
     </NavigatorButtons>
   );
