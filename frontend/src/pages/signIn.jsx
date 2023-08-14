@@ -16,7 +16,7 @@ export default function SignInButton() {
         console.log(data.user);
         setLoggedInUser(data.user.email);
         localStorage.setItem("email", data.user.email);
-        navigate("/dashboard");
+        navigate("/dashboard/page1");
       });
     }
   }

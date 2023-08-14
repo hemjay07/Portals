@@ -24,7 +24,7 @@ export default function CareerGoal({ roadMapContent, handlechange }) {
 
   function handleClick(e) {
     e.preventDefault();
-    console.log("form");
+    // console.log("form");
     navigate(`/dashboard/page${nextpage}`);
   }
   return (
