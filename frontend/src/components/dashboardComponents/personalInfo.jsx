@@ -22,7 +22,7 @@ export default function PersonalInfo({ roadMapContent, handlechange }) {
 
   function handleClick(e) {
     e.preventDefault();
-    console.log("form");
+    // console.log("form");
     navigate(`/dashboard/page${nextpage}`);
   }
 
