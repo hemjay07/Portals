@@ -2,8 +2,9 @@ import { initializeApp } from "firebase/app";
 import {
   getAuth,
   GoogleAuthProvider,
-  connectAuthEmulator,
+  // connectAuthEmulator,
 } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBcin1uyNtVCVewGf6Qtm1oLT4Q62-qo68",
@@ -20,5 +21,7 @@ const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
 export const authProvider = new GoogleAuthProvider();
+
+export const db = getFirestore(app);
 
 // connectAuthEmulator(auth, "http://127.0.0.1:9099");

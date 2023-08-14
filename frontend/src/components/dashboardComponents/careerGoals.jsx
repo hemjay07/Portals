@@ -50,7 +50,7 @@ export default function CareerGoal({ roadMapContent, handlechange }) {
           placeholder="Become a junior-level frontend developer"
         />
       </StyledLabel>
-      <Navigators />
+      <Navigators roadMapContent={roadMapContent} />
     </Container>
   );
 }

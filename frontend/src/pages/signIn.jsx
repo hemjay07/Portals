@@ -13,7 +13,7 @@ export default function SignInButton() {
       navigate("/dashboard/page1");
     } else {
       signInWithPopup(auth, authProvider).then((data) => {
-        console.log(data.user.email);
+        console.log(data.user);
         setLoggedInUser(data.user.email);
         localStorage.setItem("email", data.user.email);
         navigate("/dashboard");

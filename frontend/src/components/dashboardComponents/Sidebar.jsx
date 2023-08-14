@@ -9,7 +9,7 @@ export default function Sidebar() {
   const sectionElements = sections.map((section, index) => {
     index = index + 1;
     return (
-      <StyledLink key={index} to={`/dashboard/page${index}`}>
+      <StyledLink key={index}>
         {/* I wrote this code so that the active section(the form the user is currently in) can be higlighted differently */}
         <span
           style={{
@@ -34,7 +34,7 @@ const StyledLink = styled(Link)`
   align-items: center;
 
   &:hover {
-    scale: 1.1;
+    cursor: default;
   }
 
   span {
