@@ -22,6 +22,7 @@ export default function Navigators({ roadMapContent }) {
   }
   function getRoadMap(e) {
     const id = loggedInUser;
+    console.log(id);
     if (e.target.innerHTML == "Get your roadmap") {
       // if the "Get your roadmap" button is clicked:
 
@@ -34,6 +35,7 @@ export default function Navigators({ roadMapContent }) {
       const storeInFireStore = async () => {
         try {
           console.log("yup");
+          console.log(id);
           await setDoc(doc(db, "users", id), { userData: userData });
         } catch (error) {
           console.log(error);
