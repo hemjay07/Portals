@@ -25,6 +25,7 @@ export default function PersonalInfo({ roadMapContent, handlechange }) {
     console.log("form");
     navigate(`/dashboard/page${nextpage}`);
   }
+
   return (
     <Container onSubmit={handleClick}>
       <StyledHeader>Personal Info</StyledHeader>

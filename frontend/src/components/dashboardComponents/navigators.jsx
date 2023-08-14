@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
+import { loggedInUserContext } from "../../App";
 
 // firebase
 import { collection, doc, setDoc, updateDoc } from "firebase/firestore";
@@ -10,9 +11,8 @@ import { db } from "../../firebase";
 export default function Navigators({ roadMapContent }) {
   const location = useLocation();
   const page = location.pathname.slice(-1);
-  const navigate = useNavigate();
   let prevpage;
-  const usersCollectionRef = collection(db, "users");
+  const { loggedInUser, setLoggedInUser } = useContext(loggedInUserContext);
 
   if (page == 1) {
     prevpage = undefined;
@@ -21,54 +21,39 @@ export default function Navigators({ roadMapContent }) {
     prevpage = page / 1 - 1;
   }
   function getRoadMap(e) {
-    const id = "mujeebopabode07@gmail.com";
+    const id = loggedInUser;
     if (e.target.innerHTML == "Get your roadmap") {
       // if the "Get your roadmap" button is clicked:
 
-      // dummy input (expected from from)
-      const userData = {
-        userData: {
-          personalInfo: {
-            fullName: "Opabode Abdulmujeeb",
-            email: "mujeebopabode07@gmail.com",
-            location: "Oyo Town",
-          },
-          background: {
-            whatIsYourCurrentRole:
-              "Microbiology student at University of Ibadan ",
-            status: "first job",
-          },
-          experience: {
-            whatHaveYouLearntSoFar:
-              "HTML, CSS, JavaScript, React Or: Interaction design principles, Branding, typography and color theory, Figma",
-            whatAreYouLearningNow:
-              "React Testing Library, TypeScript Or: User research and personas, Adobe XD",
-            workExperience:
-              "Junior Frontend Engineer at BigCabal Media for 1 year, Frontend Developer Intern at HNG Internship for 3 months",
-          },
-          careerGoal: { careerGoal: "Junior fullstack engineer" },
-        },
-      };
+      const userData = roadMapContent;
+
+      // -----------------------------------------------
+      // -----------------------------------------------
 
       // store user input data that comes from the form in firestore
       const storeInFireStore = async () => {
         try {
           console.log("yup");
-          await setDoc(doc(db, "users", id), userData);
+          await setDoc(doc(db, "users", id), { userData: userData });
         } catch (error) {
           console.log(error);
         }
       };
       storeInFireStore();
 
+      // -----------------------------------------------
+      // -----------------------------------------------
       // make a post request to fetch the roadmap from the backend using the input data from the form
       const fetchRoadmap = async () => {
         try {
-          const response = await axios.post("/api/generate-roadmap", {
-            userdata: userData,
-          });
-          const roadmap = response.data.roadmap[0];
+          console.log(userData);
+          const response = await axios.post("/api/generate", userData);
+          // console.log(response.data);
+          const roadmap = response.data;
+          console.log(roadmap);
 
+          // -----------------------------------------------
+          // -----------------------------------------------
           // use the roadmap gotten from the backend to update the roadmap property of this particular user in firestore
           (async () => {
             try {
@@ -91,7 +76,6 @@ export default function Navigators({ roadMapContent }) {
 
       console.log("fetching your roadmap");
     }
-    console.log();
   }
   return (
     <NavigatorButtons>
