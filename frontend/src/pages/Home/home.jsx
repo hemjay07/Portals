@@ -1,6 +1,5 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import "./home.css";
 import Header from "../../components/homePageComponents/Header";
 import Hero from "../../components/homePageComponents/Hero";
@@ -9,12 +8,13 @@ import Cta from "../../components/homePageComponents/Cta";
 import Footer from "../../components/homePageComponents/Footer";
 import { styled } from "styled-components";
 import { loggedInUserContext } from "../../App";
+// import getUSers from "../firestore";
 
 function Home() {
-  // const [value, setValue] = useState("");
   const { loggedInUser, setLoggedInUser } = useContext(loggedInUserContext);
   const navigate = useNavigate();
-
+  // const { user } = getUSers();
+  // console.log(user);
   function scroll() {
     if (loggedInUser) {
       navigate("/dashboard/page1");
@@ -26,6 +26,7 @@ function Home() {
   useEffect(() => {
     setLoggedInUser(localStorage.getItem("email"));
   });
+
   return (
     <Background>
       <Header scroll={scroll} />
