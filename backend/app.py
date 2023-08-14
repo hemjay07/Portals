@@ -11,39 +11,72 @@ app= Flask(__name__)
 
 openai.api_key = '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'
 
+data = {
+"personalInfo": {
+"fullName": "Opabode Abdulmujeeb",
+"email": "[mujeebopabode07@gmail.com](mailto:mujeebopabode07@gmail.com)",
+"location": "Oyo Town"
+},
+"background": {"whatPartOfTechAreYouInterestedIn":"Product design",
+"whatIsYourCurrentRole": "Microbiology student at University of Ibadan ",
+"status": "first job"
+},
+"experience": {
+"whatHaveYouLearntSoFar": "HTML, CSS, JavaScript, React Or: Interaction design principles, Branding, typography and color theory, Figma",
+"whatAreYouLearningNow": "React Testing Library, TypeScript Or: User research and personas, Adobe XD",
+"workExperience": "Junior Frontend Engineer at BigCabal Media for 1 year, Frontend Developer Intern at HNG Internship for 3 months"
+},
+"careerGoal": {
+"careerGoal": "Junior fullstack engineer"
+}
+}
 
-format= '''[
-    {
-        "Courses": "",
-        "Resources Link": "",
-        "Projects": "",
-        "Allocated Time": ""
-    },
-    {
-        "Courses": "",
-        "Resources Link": "",
-        "Projects": "",
-        "Allocated Time": ""
-    },
-    {
-        "Courses": "",
-        "Resources Link": "",
-        "Projects": "",
-        "Allocated Time": ""
-    },
-    {
-        "Courses": "",
-        "Resources Link": "",
-        "Projects": "",
-        "Allocated Time": ""
-    },
-    {
-        "Courses": "Machine Learning Research Engineering",
-        "Resources Link": "Course: Harvard CS197",
-        "Projects": "Complete each of the 6 assignments each week (or less) and build the capstone project as well.",
-        "Allocated Time": "6 weeks"
-    }
-]'''
+# format= '''[
+#     {
+#         "Courses": "",
+#         "Resources Link": "",
+#         "Projects": "",
+#         "Allocated Time": ""
+#     },
+#     {
+#         "Courses": "",
+#         "Resources Link": "",
+#         "Projects": "",
+#         "Allocated Time": ""
+#     },
+#     {
+#         "Courses": "",
+#         "Resources Link": "",
+#         "Projects": "",
+#         "Allocated Time": ""
+#     },
+#     {
+#         "Courses": "",
+#         "Resources Link": "",
+#         "Projects": "",
+#         "Allocated Time": ""
+#     },
+#     {
+#         "Courses": "Machine Learning Research Engineering",
+#         "Resources Link": "Course: Harvard CS197",
+#         "Projects": "Complete each of the 6 assignments each week (or less) and build the capstone project as well.",
+#         "Allocated Time": "6 weeks"
+#     }
+# ]'''
+
+format = """
+[{
+"resourceTitle": "",
+"resourceLink": "",
+"resourceDetails":"",
+"allocatedTime":"",
+"projects": [{
+    "projectTitle": "",
+    "projectDescription": "",
+    "projectTime": ""
+}],
+}]
+"""
 
 def roadmap(prompt, model="gpt-3.5-turbo"):
 
@@ -55,7 +88,7 @@ def roadmap(prompt, model="gpt-3.5-turbo"):
 
   messages=messages,
 
-  temperature=0,
+  temperature=0.4,
 
   )
 
@@ -63,11 +96,10 @@ def roadmap(prompt, model="gpt-3.5-turbo"):
 
 print('Running!')
 
-@app.route('/api/generate', methods=["POST"])
+@app.route('/')
 def main():
-  data= request.json
-
   name = data['personalInfo']['fullName']
+  location = data['personalInfo']['location']
   whatIsYourCurrentRole = data['background']['whatIsYourCurrentRole']
   status = data['background']['status']
   whatHaveYouLearntSoFar = data['experience']['whatHaveYouLearntSoFar']
@@ -76,12 +108,21 @@ def main():
   careerGoal = data['careerGoal']['careerGoal']
   tech = data['background']['whatPartOfTechAreYouInterestedIn']
 
-  prompt = "Hi, my name is "+name+", Kindly create a very very comprehensive learning pathway for me in this format: "+format+" considering that I am currently a "+whatIsYourCurrentRole+" and I am interested in learning "+tech+". Also I am currently "+whatIsYourCurrentRole+" and what I have learnt so far include "+whatHaveYouLearntSoFar+" and I am currently learning "+whatAreYouLearningNow+". My work experirience include: "+workExperience+" and my career goal is "+careerGoal+". Make the pathway very very comprehensives and Tell me where it is best to learn those courses and the timeframe to learn them. Thanks. MAKE IT IN THAT FORMAT ONLY"
+  prompt = f"""
+  Hi, my name is {name}, and I live in{location}. I currently work as {whatIsYourCurrentRole} and I am interested in {tech}. I am currently {status}. So far, I have learnt {whatHaveYouLearntSoFar}. I am currently learning {whatAreYouLearningNow}. I have worked as {workExperience}. My career goal is {careerGoal}. 
   
+  Please share a comprehensive, practical and detailed roadmap in the form of an array of objects with each object being a resource(be it a book, course, article, video, documentation, podcast) containing a resourceTitle which is the title of the resource, then a resourceLink which is the url link to the resource, then resourceDetails which summarizes and goes into some detail on the resource and what you'd learn using it, then projects as an array of objects you can build with the knowledge you have gained from the resource and then the allocatedTime which is the time taken to complete the resource. 
+  
+  Please give me a response in JSON using the format below.
+  Format: ```{format}```
+  """
+
   result = roadmap(prompt)
   return result
+#   prompt = "Hi, my name is "+name+", Kindly create a very very comprehensive learning pathway for me in this format: "+format+" considering that I am currently a "+whatIsYourCurrentRole+" and I am interested in learning "+tech+". Also I am currently "+whatIsYourCurrentRole+" and what I have learnt so far include "+whatHaveYouLearntSoFar+" and I am currently learning "+whatAreYouLearningNow+". My work experirience include: "+workExperience+" and my career goal is "+careerGoal+". Make the pathway very very comprehensives and Tell me where it is best to learn those courses and the timeframe to learn them. Thanks. MAKE IT IN THAT FORMAT ONLY"
+  
 
-@app.route("/api")
+@app.route("/test")
 def test():
         return {"hoem":"galnga"}
     
