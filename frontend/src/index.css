@@ -59,3 +59,30 @@ video {
   /* accent color is used to draw attention to a button or something very important! */
   --accentColor: #7fdb57;
 }
+
+.kUOkfN.active{
+  background-color: #7fdb57 !important;
+}
+
+.jgZHdE:not(.using-icon).active {
+  background: #7fdb57 !important;
+}
+
+.scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #131a0f;
+    border-radius: 5px;
+    margin-block: 3px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #449720;
+    border-radius: 5px;
+  }
+}
