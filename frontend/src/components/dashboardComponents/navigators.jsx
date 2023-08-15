@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
 import { loggedInUserContext } from "../../App";
+import { loadingContext } from "../../App";
 
 // firebase
 import { collection, doc, setDoc, updateDoc } from "firebase/firestore";
@@ -13,6 +14,7 @@ export default function Navigators({ roadMapContent }) {
   const page = location.pathname.slice(-1);
   let prevpage;
   const { loggedInUser, setLoggedInUser } = useContext(loggedInUserContext);
+  const { loading, setLoading } = useContext(loadingContext);
   const navigate = useNavigate();
 
   if (page == 1) {
@@ -53,16 +55,18 @@ export default function Navigators({ roadMapContent }) {
           const response = await axios.post("/api/generate", userData);
           // console.log(response.data);
           const roadmap = response.data;
+          setLoading(false);
           localStorage.setItem("roadmap", JSON.stringify(roadmap));
           console.log(roadmap);
-          navigate("/roadmap")
 
           // -----------------------------------------------
           // -----------------------------------------------
           // use the roadmap gotten from the backend to update the roadmap property of this particular user in firestore
           (async () => {
             try {
+              console.log("updating doc");
               await updateDoc(doc(db, "users", id), { roadMap: roadmap });
+              console.log("updated doc");
             } catch (error) {
               console.log(`"UpdateUserRoadmapError": ${error}`);
             }
@@ -80,6 +84,8 @@ export default function Navigators({ roadMapContent }) {
       // store the roadmap in firestore
 
       console.log("fetching your roadmap");
+      setLoading(true);
+      navigate("/roadmap");
     }
   }
   return (
