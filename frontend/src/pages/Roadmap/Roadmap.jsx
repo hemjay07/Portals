@@ -1,10 +1,16 @@
 import React from 'react'
 import { Chrono } from "react-chrono";
-import {StyledRoadmap} from "./Roadmap.styled"
+import {StyledRoadmap, StyledFeedback, StyledLink} from "./Roadmap.styled"
+// import FeedbackModal from "./FeedbackModal"
 
 export default function Roadmap() {
     const newRoadmap = JSON.parse(localStorage.getItem("roadmap"));
     console.log(newRoadmap);
+
+    // const handleScrollEnd = () => {
+    //     setModal(true);
+    //     console.log("at the end of page");
+    // }
 
     function calculateSubsequentDate(baseDate, duration) {
         const millisecondsInDay = 24 * 60 * 60 * 1000;
@@ -76,7 +82,7 @@ export default function Roadmap() {
 
   return (
     <StyledRoadmap 
-    style={{ width: "100vw", height: "100vh", backgroundColor: 'black'}}
+    style={{ maxwidth: "100vw", minHeight: "100vh", backgroundColor: 'black'}}
     >
         <Chrono 
         items={items} mode="VERTICAL_ALTERNATING"
@@ -103,7 +109,14 @@ export default function Roadmap() {
         hideControls="true"
         timelinePointShape="circle"
         className="kUOkfN jgZHdE"
+        // onScrollEnd={handleScrollEnd}
         />
+        <StyledLink href="https://docs.google.com/forms/d/e/1FAIpQLSfqbKtH_7bWUtpGhLOtpoOxZ3_vkwQmVZaRXRD5aB06ShJj8g/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer">
+            <StyledFeedback>
+                Share your feedback with us!
+            </StyledFeedback>
+        </StyledLink>
     </StyledRoadmap>
   )
 }
+

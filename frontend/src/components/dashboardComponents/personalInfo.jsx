@@ -36,7 +36,7 @@ export default function PersonalInfo({ roadMapContent, handlechange }) {
         What's your full name?
         <input
           name="fullName"
-          value={roadMapContent.personalInfo.fullname}
+          value={roadMapContent.personalInfo.fullName || ""}
           type="text"
           required
           onChange={(e) => {
