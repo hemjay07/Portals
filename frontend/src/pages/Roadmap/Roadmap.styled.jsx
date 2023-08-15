@@ -1,6 +1,6 @@
-import { styled } from "styled-components"
+import { styled } from "styled-components";
 export const StyledRoadmap = styled.div`
-    &::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     width: 6px;
   }
 
@@ -16,4 +16,17 @@ export const StyledRoadmap = styled.div`
     background: #449720;
     border-radius: 5px;
   }
-`
+
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+
+  @keyframes fadeInAnimation {
+    0% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+`;

@@ -17,7 +17,12 @@ function Home() {
   // console.log(user);
   function scroll() {
     if (loggedInUser) {
-      navigate("/dashboard/page1");
+      const roadmap = localStorage.getItem("roadmap");
+      if (roadmap) {
+        navigate("/roadmap");
+      } else {
+        navigate("/dashboard/page1");
+      }
     } else {
       const element = document.getElementById("google-login");
       element.scrollIntoView({ behavior: "smooth" });

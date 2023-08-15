@@ -10,13 +10,24 @@ export default function SignInButton() {
   const navigate = useNavigate();
   function handleSignIn() {
     if (loggedInUser) {
-      navigate("/dashboard/page1");
+      // can be better, we are using the same thing below and in the scroll function in the dashboard
+      const roadmap = localStorage.getItem("roadmap");
+      if (roadmap) {
+        navigate("/roadmap");
+      } else {
+        navigate("/dashboard/page1");
+      }
     } else {
       signInWithPopup(auth, authProvider).then((data) => {
         console.log(data.user);
         setLoggedInUser(data.user.email);
         localStorage.setItem("email", data.user.email);
-        navigate("/dashboard/page1");
+        const roadmap = localStorage.getItem("roadmap");
+        if (roadmap) {
+          navigate("/roadmap");
+        } else {
+          navigate("/dashboard/page1");
+        }
       });
     }
   }
