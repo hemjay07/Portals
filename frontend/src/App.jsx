@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Home from "./pages/Home/home";
+import Roadmap from "./pages/Roadmap/Roadmap"
 export const loggedInUserContext = createContext(null);
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/dashboard/*" element={<Dashboard />} />
+        <Route path="/roadmap/" element={<Roadmap />} />
       </Routes>
     </loggedInUserContext.Provider>
   );

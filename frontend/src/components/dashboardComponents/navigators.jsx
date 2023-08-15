@@ -13,6 +13,7 @@ export default function Navigators({ roadMapContent }) {
   const page = location.pathname.slice(-1);
   let prevpage;
   const { loggedInUser, setLoggedInUser } = useContext(loggedInUserContext);
+  const navigate = useNavigate();
 
   if (page == 1) {
     prevpage = undefined;
@@ -52,7 +53,9 @@ export default function Navigators({ roadMapContent }) {
           const response = await axios.post("/api/generate", userData);
           // console.log(response.data);
           const roadmap = response.data;
+          localStorage.setItem("roadmap", JSON.stringify(roadmap));
           console.log(roadmap);
+          navigate("/roadmap")
 
           // -----------------------------------------------
           // -----------------------------------------------
