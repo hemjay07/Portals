@@ -1,0 +1,8 @@
+yaml
+     services:
+       - name: backend
+         env:
+           - key: PYTHONUNBUFFERED
+             value: "1"
+         buildCommand: pip install -r requirements.txt
+         startCommand: gunicorn -b :$PORT main:app
