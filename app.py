@@ -7,11 +7,16 @@ import os
 app = Flask(
     __name__,
     static_url_path='',
-    static_folder='./client/dist',
+    static_folder='client/dist',
     # template_folder='./client/dist'
 )
 
 openai.api_key = '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'
+
+@app.errorhandler(404)
+def not_found(e):
+    return app.send_static_file('index.html')
+
 
 
 @app.route('/', defaults={'path': ''})
@@ -92,6 +97,6 @@ def test():
 
 
 if __name__ == '__main__':
-    app.run(debug= True, use_reloader=True)
+    app.run()
 
 

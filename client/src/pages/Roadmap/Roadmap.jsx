@@ -132,6 +132,9 @@ export default function Roadmap() {
       </StyledLink>
     </StyledRoadmap>
   ) : (
-    <Placeholder />
+    <>
+      <Placeholder />
+      <Placeholder />
+    </>
   );
 }
