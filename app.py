@@ -1,7 +1,11 @@
 from flask import Flask, request,send_from_directory
+from dotenv import load_dotenv
 import openai
 
 import os
+
+load_dotenv()
+openai.api_key = os.environ["API_KEY"]
 
 
 app = Flask(
@@ -11,7 +15,7 @@ app = Flask(
     # template_folder='./client/dist'
 )
 
-openai.api_key = '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'
+
 
 @app.errorhandler(404)
 def not_found(e):
@@ -88,6 +92,7 @@ def main():
 
   result = roadmap(prompt)
   return result
+
 
 
 @app.route("/test")
