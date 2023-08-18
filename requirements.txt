@@ -1,6 +1,4 @@
 Flask>=1.0.2
 openai
 gunicorn
-pip 
-setuptools
-dotenv
+python-dotenv
