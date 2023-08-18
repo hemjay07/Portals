@@ -21,6 +21,10 @@ app = Flask(
 def not_found(e):
     return app.send_static_file('index.html')
 
+@app.errorhandler(502)
+def handle_bad_gateway(error):
+    return jsonify({'error': 'Bad Gateway'}), 502
+  
 
 
 @app.route('/', defaults={'path': ''})
@@ -96,7 +100,7 @@ def main():
     result = roadmap(prompt)
     return result
   except Exception as e:
-    abort(402)
+    abort(502)
   
 
 
@@ -105,10 +109,6 @@ def main():
 def test():
         return {"hoem":"galnga"}
 
-@app.errorhandler(502)
-def handle_bad_gateway(error):
-    return jsonify({'error': 'Bad Gateway'}), 502
-  
 
 
 if __name__ == '__main__':
