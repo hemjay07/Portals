@@ -52,7 +52,8 @@ export default function Navigators({ roadMapContent }) {
       const fetchRoadmap = async () => {
         try {
           console.log(userData);
-          const response = await axios.post("/api/generate", userData);
+          const url = window.location.origin + "/api/generate";
+          const response = await axios.post(url, userData);
           // console.log(response.data);
           const roadmap = response.data;
           console.log(roadmap);
