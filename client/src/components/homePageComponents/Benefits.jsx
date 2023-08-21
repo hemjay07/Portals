@@ -91,10 +91,15 @@ const StyledIcon = styled.img`
 `;
 const StyledPuncher = styled.h3`
   margin-bottom: 10px;
-  align-self: center;
   font-size: 1.7rem;
   padding-inline: 2px;
+  text-align: center;
 `;
 const StyledText = styled.p`
   padding-inline: 10px;
+  margin: 0 auto;
+
+  @media only screen and (max-width: 800px) {
+    text-align: center;
+  }
 `;
