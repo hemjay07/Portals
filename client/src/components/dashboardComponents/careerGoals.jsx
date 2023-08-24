@@ -1,5 +1,4 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
 import {
   Container,
   StyledLabel,
@@ -11,6 +10,7 @@ import Navigators from "./navigators";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function CareerGoal({ roadMapContent, handlechange }) {
+  const [disableSubmit, setDisableSubmit] = useState(false);
   const location = useLocation();
   const page = location.pathname.slice(-1);
   const navigate = useNavigate();
@@ -21,6 +21,17 @@ export default function CareerGoal({ roadMapContent, handlechange }) {
   if (page != 4) {
     nextpage = page / 1 + 1;
   }
+
+  // disable the submit button if the content of any the field is not filled
+  useEffect(() => {
+    const valueArray = Object.values(roadMapContent.careerGoal);
+    console.log(valueArray);
+    if (valueArray[0]) {
+      setDisableSubmit(false);
+    } else {
+      setDisableSubmit(true);
+    }
+  }, [roadMapContent.careerGoal]);
 
   function handleClick(e) {
     e.preventDefault();
@@ -51,7 +62,10 @@ export default function CareerGoal({ roadMapContent, handlechange }) {
           placeholder="Become a junior-level frontend developer"
         />
       </StyledLabel>
-      <Navigators roadMapContent={roadMapContent} />
+      <Navigators
+        disableSubmit={disableSubmit}
+        roadMapContent={roadMapContent}
+      />
     </Container>
   );
 }

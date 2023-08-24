@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Home from "./pages/Home/home";
 import Roadmap from "./pages/Roadmap/Roadmap";
+import NotFound from "./pages/notFound";
 export const loggedInUserContext = createContext(null);
 export const loadingContext = createContext(null);
 
@@ -22,8 +23,10 @@ export default function App() {
       <loadingContext.Provider value={{ loading, setLoading }}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/dashboard/*" element={<Dashboard />} />
+          <Route path="/dashboard/:pageId" element={<Dashboard />} />
           <Route path="/roadmap/" element={<Roadmap />} />
+          <Route path="*" element={<NotFound />} />{" "}
+          {/* Fallback for unmatched routes */}
         </Routes>
       </loadingContext.Provider>
     </loggedInUserContext.Provider>

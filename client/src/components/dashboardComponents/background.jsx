@@ -78,6 +78,7 @@ export default function Background({ roadMapContent, handlechange }) {
           value={
             roadMapContent.background.whatPartOfTechAreYouInterestedIn || ""
           }
+          required
           onChange={(e) => {
             handlechange(e, "background");
           }}

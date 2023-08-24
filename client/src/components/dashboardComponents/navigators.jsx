@@ -9,7 +9,8 @@ import { loadingContext } from "../../App";
 import { collection, doc, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 
-export default function Navigators({ roadMapContent }) {
+export default function Navigators({ disableSubmit, roadMapContent }) {
+  console.log(disableSubmit);
   const location = useLocation();
   const page = location.pathname.slice(-1);
   let prevpage;
@@ -99,9 +100,14 @@ export default function Navigators({ roadMapContent }) {
       ) : (
         <div> </div>
       )}
-      <NextPageButton onClick={getRoadMap} type="submit">{`${
-        page == 4 ? "Get your roadmap" : "Next Page"
-      }`}</NextPageButton>
+      <NextPageButton
+        disabled={disableSubmit}
+        onClick={getRoadMap}
+        type="submit"
+        style={{
+          cursor: disableSubmit ? "not-allowed" : "unset",
+        }}
+      >{`${page == 4 ? "Get your roadmap" : "Next Page"}`}</NextPageButton>
     </NavigatorButtons>
   );
 }
