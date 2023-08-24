@@ -21,6 +21,7 @@ const ActionCall = styled.div`
   display: flex;
   flex-direction: column;
   padding-block: 4rem;
+  padding-inline: 10px;
 `;
 const ActionTitle = styled.h3`
   font-size: 3rem;

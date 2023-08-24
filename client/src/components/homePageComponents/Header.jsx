@@ -44,10 +44,10 @@ const HugeText = styled.h1`
 const GreenButton = styled.button`
   background-color: #7fdb57;
   color: #020401;
-  padding: 10px 20px;
+  padding: 6px 12px;
   border: none;
   border-radius: 10px;
-  font-size: 2rem;
+  font-size: 1.4rem;
   cursor: pointer;
 
   &:hover {
@@ -55,8 +55,8 @@ const GreenButton = styled.button`
     color: #fff;
   }
   @media screen and (max-width: 428px) {
-    padding: 0 8px;
-    font-size: 1.5rem;
+    padding: 4px 12px;
+    font-size: 16px;
   }
 `;
 

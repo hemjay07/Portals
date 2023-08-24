@@ -55,7 +55,9 @@ const HeroBody = styled.div`
 
 const HeroHighlight = styled.span`
   color: #aae090;
+  font-style: italic;
 `;
+
 const HeroText = styled.div`
   display: flex;
   flex-direction: column;

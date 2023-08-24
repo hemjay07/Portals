@@ -9,38 +9,39 @@ export default function Roadmap() {
   const { loading, setLoading } = useContext(loadingContext);
   const newRoadmap = JSON.parse(localStorage.getItem("roadmap"));
 
-  // const handleScrollEnd = () => {
-  //     setModal(true);
-  //     console.log("at the end of page");
-  // }
+  console.log(newRoadmap);
 
   function calculateSubsequentDate(baseDate, duration) {
     const millisecondsInDay = 24 * 60 * 60 * 1000;
     const millisecondsInWeek = millisecondsInDay * 7;
 
     const parts = duration.split(" ");
+    console.log(parts);
     const value = parseInt(parts[0]);
-    console.log(parts[0], parts[1]);
-    const unit = parts[1].toLowerCase() || parts[1];
+    console.log(value);
+    const unit = parts[1].toLowerCase();
+    console.log(unit);
 
     let timeToAdd = 0;
 
-    if (unit === "days") {
+    if (unit === "days" || unit === "day") {
       timeToAdd = value * millisecondsInDay;
-    } else if (unit === "weeks") {
+    } else if (unit === "weeks" || unit === "week") {
       timeToAdd = value * millisecondsInWeek;
-    } else if (unit === "months") {
+      console;
+    } else if (unit === "months" || unit === "month") {
       // Note: Calculating exact months can be more complex due to varying month lengths and leap years.
       // For simplicity, this example uses an approximate month length of 30.44 days.
       timeToAdd = value * 30.44 * millisecondsInDay;
     }
 
     const subsequentTimestamp = baseDate + timeToAdd;
-    return new Date(subsequentTimestamp).toLocaleDateString("en-US", {
+    const newDate = new Date(subsequentTimestamp).toLocaleDateString("en-US", {
       year: "numeric",
       month: "short",
       day: "numeric",
     });
+    return newDate;
   }
 
   let items = [];
@@ -70,12 +71,12 @@ export default function Roadmap() {
           items: projects,
         });
       } else {
-        const today = Date.parse(items[items.length - 1].title);
-
+        const today = Date.parse(items[resource - 1].title);
         const subsequentDate = calculateSubsequentDate(
           today,
           newRoadmap[resource].allocatedTime
         );
+
         items.push({
           title: subsequentDate,
           cardTitle: newRoadmap[resource].resourceTitle,
@@ -98,7 +99,7 @@ export default function Roadmap() {
     >
       <Chrono
         items={items}
-        mode="VERTICAL_ALTERNATING"
+        mode={window.innerWidth < 468 ? "VERTICAL" : "VERTICAL_ALTERNATING"}
         theme={{
           cardBgColor: `#102009`,
           titleColor: "#ffffff",
