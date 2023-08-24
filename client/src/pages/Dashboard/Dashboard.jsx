@@ -4,18 +4,21 @@ import Background from "../../components/dashboardComponents/background";
 import CareerGoal from "../../components/dashboardComponents/careerGoals";
 import Experience from "../../components/dashboardComponents/experience";
 import PersonalInfo from "../../components/dashboardComponents/personalInfo";
-import { TfiAngleDoubleRight } from "react-icons/tfi";
+import NotFound from "../notFound";
 import { IoLogoXbox } from "react-icons/io";
 import styled from "styled-components";
 // import { loggedInUserContext } from "../../App";
 import Header from "../../components/homePageComponents/Header";
 
-import { Link, Routes, Route } from "react-router-dom";
+import { Link, Routes, Route, useParams, useNavigate } from "react-router-dom";
 import { DashboardContainer, FormContainer } from "./Dashboard.styled";
 // export const SideBarContext = createContext();
 // export const roadMapContent = createContext
 
 export default function Dashboard() {
+  // Returns an object of key/value pairs of the dynamic params from the current URL that were matched by the route path.
+  let params = useParams();
+  const navigate = useNavigate();
   // const [sidebar, setSideBar] = useState(true);
   // const { loggedInUser } = useContext(loggedInUserContext);
   const [roadMapContent, setRoadMapContent] = useState({
@@ -24,6 +27,10 @@ export default function Dashboard() {
     experience: {},
     careerGoal: {},
   });
+
+  const pages = [PersonalInfo, Background, Experience, CareerGoal];
+  const pageNumber = params.pageId.slice(-1);
+  const PageComponent = pages[pageNumber - 1];
 
   function handlechange(e, componentName) {
     const name = e.target.name;
@@ -35,16 +42,20 @@ export default function Dashboard() {
       };
     });
   }
+  if (pageNumber >= 1 && pageNumber <= 4) {
+    return (
+      // <SideBarContext.Provider value={{ sidebar, setSideBar }}>
+      <DashboardContainer>
+        <Header />
 
-  return (
-    // <SideBarContext.Provider value={{ sidebar, setSideBar }}>
-    <DashboardContainer>
-      <Header />
-
-      <FormContainer>
-        {/* <OpenSidebar onClick={() => setSideBar(!sidebar)} /> */}
-        <Sidebar />
-        <Routes>
+        <FormContainer>
+          {/* <OpenSidebar onClick={() => setSideBar(!sidebar)} /> */}
+          <Sidebar />
+          <PageComponent
+            roadMapContent={roadMapContent}
+            handlechange={handlechange}
+          />
+          {/* <Routes>
           <Route
             path="page1"
             element={
@@ -81,10 +92,13 @@ export default function Dashboard() {
               />
             }
           />
-        </Routes>
-      </FormContainer>
-    </DashboardContainer>
-  );
+        </Routes> */}
+        </FormContainer>
+      </DashboardContainer>
+    );
+  } else {
+    return <NotFound />;
+  }
 }
 
 const Logo = styled(IoLogoXbox)`

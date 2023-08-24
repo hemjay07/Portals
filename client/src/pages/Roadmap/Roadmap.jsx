@@ -28,13 +28,12 @@ export default function Roadmap() {
       timeToAdd = value * millisecondsInDay;
     } else if (unit === "weeks" || unit === "week") {
       timeToAdd = value * millisecondsInWeek;
-      console
+      console;
     } else if (unit === "months" || unit === "month") {
       // Note: Calculating exact months can be more complex due to varying month lengths and leap years.
       // For simplicity, this example uses an approximate month length of 30.44 days.
       timeToAdd = value * 30.44 * millisecondsInDay;
     }
-
 
     const subsequentTimestamp = baseDate + timeToAdd;
     const newDate = new Date(subsequentTimestamp).toLocaleDateString("en-US", {
@@ -57,9 +56,7 @@ export default function Roadmap() {
           cardSubtitle: newRoadmap[resource].projects[project].projectTime,
         });
       }
-      
-      
-      
+
       if (items.length === 0) {
         items.push({
           title: new Date().toLocaleDateString("en-US", {
@@ -73,8 +70,7 @@ export default function Roadmap() {
           cardSubtitle: newRoadmap[resource].allocatedTime,
           items: projects,
         });
-      }
-      else {
+      } else {
         const today = Date.parse(items[resource - 1].title);
         const subsequentDate = calculateSubsequentDate(
           today,
@@ -103,7 +99,7 @@ export default function Roadmap() {
     >
       <Chrono
         items={items}
-        mode={window.innerWidth < 468 ? "VERTICAL" : "VERTICAL_ALTERNATING" }
+        mode={window.innerWidth < 468 ? "VERTICAL" : "VERTICAL_ALTERNATING"}
         theme={{
           cardBgColor: `#102009`,
           titleColor: "#ffffff",

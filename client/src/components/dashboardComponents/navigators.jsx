@@ -9,7 +9,8 @@ import { loadingContext } from "../../App";
 import { collection, doc, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 
-export default function Navigators({ roadMapContent }) {
+export default function Navigators({ disableSubmit, roadMapContent }) {
+  console.log(disableSubmit);
   const location = useLocation();
   const page = location.pathname.slice(-1);
   let prevpage;
@@ -52,7 +53,8 @@ export default function Navigators({ roadMapContent }) {
       const fetchRoadmap = async () => {
         try {
           console.log(userData);
-          const response = await axios.post("/api/generate", userData);
+          const url = window.location.origin + "/api/generate";
+          const response = await axios.post(url, userData);
           // console.log(response.data);
           const roadmap = response.data;
           console.log(roadmap);
@@ -98,9 +100,14 @@ export default function Navigators({ roadMapContent }) {
       ) : (
         <div> </div>
       )}
-      <NextPageButton onClick={getRoadMap} type="submit">{`${
-        page == 4 ? "Get your roadmap" : "Next Page"
-      }`}</NextPageButton>
+      <NextPageButton
+        disabled={disableSubmit}
+        onClick={getRoadMap}
+        type="submit"
+        style={{
+          cursor: disableSubmit ? "not-allowed" : "unset",
+        }}
+      >{`${page == 4 ? "Get your roadmap" : "Next Page"}`}</NextPageButton>
     </NavigatorButtons>
   );
 }
