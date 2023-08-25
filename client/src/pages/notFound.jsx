@@ -20,24 +20,25 @@ export default function NotFound() {
 // `;
 
 const Page = Styled.div`
-position: absolute;
 width: 100%;
 height: 100%;
 background-color: black;
 color:#7fdb57;
+display: flex;
 
 justify-content: center;
 
 `;
 
 const Container = Styled.div`
-margin: auto;
+
 justify-content: center;
 align-items: center;
 text-align: center;
 width: 60vw;
+margin: 0 auto;
+height: 100vh;
 max-width: 1000px; 
-// border: red 2px solid
 `;
 
 const StyledPiSmileySad = Styled(PiSmileySad)`

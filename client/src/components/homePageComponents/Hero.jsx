@@ -29,7 +29,7 @@ function Hero({ scroll }) {
           </HeroTriggers>
         </HeroAction>
       </HeroText>
-      <HeroVideo src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1"></HeroVideo>
+      <HeroVideo src="https://www.loom.com/embed/16de322bcb1d41a0959252780e204859?sid=77705573-ba08-42f7-b7b5-e5db56f0f585?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true. " frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></HeroVideo>
     </HeroBody>
   );
 }
