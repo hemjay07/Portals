@@ -1,7 +1,7 @@
 import React, { useState, createContext } from "react";
 
 import { Routes, Route } from "react-router-dom";
-import icon from '../src/assets/favicon.ico';
+import icon from "../src/assets/favicon.ico";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Home from "./pages/Home/home";
 import Roadmap from "./pages/Roadmap/Roadmap";
@@ -12,10 +12,10 @@ export const loadingContext = createContext(null);
 export default function App() {
   const [loggedInUser, setLoggedInUser] = useState("");
   const [loading, setLoading] = useState(null);
-  
+
   React.useEffect(() => {
-      const favicon = document.getElementById('favicon');
-      favicon.setAttribute('href', icon);
+    const favicon = document.getElementById("favicon");
+    favicon.setAttribute("href", icon);
   }, []);
 
   return (
