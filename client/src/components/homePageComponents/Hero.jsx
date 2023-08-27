@@ -29,7 +29,7 @@ function Hero({ scroll }) {
           </HeroTriggers>
         </HeroAction>
       </HeroText>
-      <HeroVideo src="https://www.loom.com/embed/bb7ba95c0be04f27a2895f3dd07bd835?sid=b85c95d2-6b9a-4e3e-abd8-858b642805e6?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true"></HeroVideo>
+      <HeroVideo src="https://www.loom.com/embed/bb7ba95c0be04f27a2895f3dd07bd835?sid=80b2f0ea-0dff-47e7-98f2-b7f2568c8530?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true" autoPlay="0"></HeroVideo>
     </HeroBody>
   );
 }
