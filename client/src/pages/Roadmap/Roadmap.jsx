@@ -19,7 +19,7 @@ export default function Roadmap() {
     console.log(parts);
     const value = parseInt(parts[0]);
     console.log(value);
-    const unit = parts[1].toLowerCase();
+    const unit = parts[1].toLowerCase() || "";
     console.log(unit);
 
     let timeToAdd = 0;

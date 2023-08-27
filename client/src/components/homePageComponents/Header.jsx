@@ -14,7 +14,7 @@ function Header({ scroll }) {
   if (currentLocation == "home") {
     log = <GreenButton onClick={() => scroll()}>Log in</GreenButton>;
   } else {
-    log = <GreenButton onClick={() => scroll()}>Log out</GreenButton>;
+    log = <></>;
   }
   return (
     <Head>
