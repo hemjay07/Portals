@@ -3,8 +3,6 @@ from dotenv import load_dotenv
 import openai
 
 import os
-import mimetypes
-mimetypes.add_type('application/javascript', '.js')
 
 load_dotenv()
 openai.api_key = os.environ.get("API_KEY")
