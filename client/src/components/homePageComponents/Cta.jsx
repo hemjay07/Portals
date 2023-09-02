@@ -7,7 +7,7 @@ function Cta({ loggedUser, setLoggedUser }) {
     <ActionCall id="google-login">
       <ActionTitle>You need this!</ActionTitle>
       <ActionParagraph>So why not click the button and see?</ActionParagraph>
-      <SignInButton className="googleAuth" />
+      <SignInButton />
     </ActionCall>
   );
 }
