@@ -28,7 +28,7 @@ export default function Navigators({ disableSubmit, roadMapContent }) {
     const id = loggedInUser;
     console.log(id);
     if (e.target.innerHTML == "Get your roadmap") {
-      // if the "Get your roadmap" button is clicked:
+      // if the "Get your roadmap" button is clicked
 
       const userData = roadMapContent;
 
