@@ -84,7 +84,6 @@ def roadmap(prompt, model="gpt-3.5-turbo"):
 @app.route('/api/generate', methods=['POST'])
 def main():
   try:
-
     data = request.json
     name = data['personalInfo']['fullName']
     location = data['personalInfo']['location']
@@ -111,6 +110,7 @@ def main():
 
      
     result = roadmap(prompt)
+    print(result)
     return result
   except Exception as e:
     abort(502)
