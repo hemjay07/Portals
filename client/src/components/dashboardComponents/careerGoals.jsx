@@ -25,7 +25,6 @@ export default function CareerGoal({ roadMapContent, handlechange }) {
   // disable the submit button if the content of any the field is not filled
   useEffect(() => {
     const valueArray = Object.values(roadMapContent.careerGoal);
-    console.log(valueArray);
     if (valueArray[0]) {
       setDisableSubmit(false);
     } else {
@@ -35,7 +34,6 @@ export default function CareerGoal({ roadMapContent, handlechange }) {
 
   function handleClick(e) {
     e.preventDefault();
-    // console.log("form");
     navigate(`/dashboard/page${nextpage}`);
   }
   return (

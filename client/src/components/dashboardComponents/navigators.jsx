@@ -10,7 +10,6 @@ import { collection, doc, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 
 export default function Navigators({ disableSubmit, roadMapContent }) {
-  console.log(disableSubmit);
   const location = useLocation();
   const page = location.pathname.slice(-1);
   let prevpage;
@@ -26,7 +25,6 @@ export default function Navigators({ disableSubmit, roadMapContent }) {
   }
   function getRoadMap(e) {
     const id = loggedInUser;
-    console.log(id);
     if (e.target.innerHTML == "Get your roadmap") {
       // if the "Get your roadmap" button is clicked
 
@@ -38,8 +36,6 @@ export default function Navigators({ disableSubmit, roadMapContent }) {
       // store user input data that comes from the form in firestore
       const storeInFireStore = async () => {
         try {
-          console.log("yup");
-          console.log(id);
           await setDoc(doc(db, "users", id), { userData: userData });
         } catch (error) {
           console.log(error);
@@ -52,24 +48,19 @@ export default function Navigators({ disableSubmit, roadMapContent }) {
       // make a post request to fetch the roadmap from the backend using the input data from the form
       const fetchRoadmap = async () => {
         try {
-          console.log(userData);
           const url = window.location.origin + "/api/generate";
           const response = await axios.post(url, userData);
           const roadmap = response.data;
-          console.log(roadmap);
-          console.log(roadmap);
+
           setLoading(false);
           localStorage.setItem("roadmap", JSON.stringify(roadmap));
-          console.log(roadmap);
 
           // -----------------------------------------------
           // -----------------------------------------------
           // use the roadmap gotten from the backend to update the roadmap property of this particular user in firestore
           (async () => {
             try {
-              console.log("updating doc");
               await updateDoc(doc(db, "users", id), { roadMap: roadmap });
-              console.log("updated doc");
             } catch (error) {
               console.log(`"UpdateUserRoadmapError": ${error}`);
             }
@@ -77,7 +68,6 @@ export default function Navigators({ disableSubmit, roadMapContent }) {
         } catch (error) {
           console.log(error);
         }
-        console.log(roadMapContent);
       };
       fetchRoadmap();
 
@@ -86,7 +76,6 @@ export default function Navigators({ disableSubmit, roadMapContent }) {
 
       // store the roadmap in firestore
 
-      console.log("fetching your roadmap");
       setLoading(true);
       navigate("/roadmap");
     }

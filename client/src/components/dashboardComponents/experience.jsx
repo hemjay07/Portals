@@ -24,7 +24,6 @@ export default function Experience({ roadMapContent, handlechange }) {
 
   function handleClick(e) {
     e.preventDefault();
-    console.log("form");
     navigate(`/dashboard/page${nextpage}`);
   }
   return (
@@ -105,7 +104,6 @@ export default function Experience({ roadMapContent, handlechange }) {
           }
         />
       </StyledLabel>{" "}
-      {/* <button onClick={() => console.log(roadMapContent.experience)}></button> */}
       <Navigators />
     </Container>
   );

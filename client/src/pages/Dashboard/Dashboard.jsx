@@ -12,8 +12,6 @@ import Header from "../../components/homePageComponents/Header";
 
 import { Link, Routes, Route, useParams, useNavigate } from "react-router-dom";
 import { DashboardContainer, FormContainer } from "./Dashboard.styled";
-// export const SideBarContext = createContext();
-// export const roadMapContent = createContext
 
 export default function Dashboard() {
   // Returns an object of key/value pairs of the dynamic params from the current URL that were matched by the route path.

@@ -9,18 +9,13 @@ export default function Roadmap() {
   const { loading, setLoading } = useContext(loadingContext);
   const newRoadmap = JSON.parse(localStorage.getItem("roadmap"));
 
-  console.log(newRoadmap);
-
   function calculateSubsequentDate(baseDate, duration) {
     const millisecondsInDay = 24 * 60 * 60 * 1000;
     const millisecondsInWeek = millisecondsInDay * 7;
 
     const parts = duration.split(" ");
-    console.log(parts);
     const value = parseInt(parts[0]);
-    console.log(value);
     const unit = parts[1].toLowerCase() || "";
-    console.log(unit);
 
     let timeToAdd = 0;
 
@@ -28,7 +23,6 @@ export default function Roadmap() {
       timeToAdd = value * millisecondsInDay;
     } else if (unit === "weeks" || unit === "week") {
       timeToAdd = value * millisecondsInWeek;
-      console;
     } else if (unit === "months" || unit === "month") {
       // Note: Calculating exact months can be more complex due to varying month lengths and leap years.
       // For simplicity, this example uses an approximate month length of 30.44 days.

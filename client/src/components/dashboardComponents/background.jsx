@@ -149,8 +149,6 @@ export default function Background({ roadMapContent, handlechange }) {
           Experienced but seeking an entirely new role
         </label>
       </StyledRadio>
-      {/* <button onClick={() => console.log(roadMapContent)}></button> */}
-
       <Navigators />
     </Container>
   );

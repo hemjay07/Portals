@@ -22,7 +22,6 @@ export default function PersonalInfo({ roadMapContent, handlechange }) {
 
   function handleClick(e) {
     e.preventDefault();
-    // console.log("form");
     navigate(`/dashboard/page${nextpage}`);
   }
 
@@ -68,7 +67,6 @@ export default function PersonalInfo({ roadMapContent, handlechange }) {
           }}
         />
       </StyledLabel>
-      {/* <button onClick={() => console.log(roadMapContent.personalInfo)}></button> */}
       <Navigators />
     </Container>
   );
