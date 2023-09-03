@@ -55,8 +55,8 @@ export default function Navigators({ disableSubmit, roadMapContent }) {
           console.log(userData);
           const url = window.location.origin + "/api/generate";
           const response = await axios.post(url, userData);
-          // console.log(response.data);
           const roadmap = response.data;
+          console.log(roadmap);
           console.log(roadmap);
           setLoading(false);
           localStorage.setItem("roadmap", JSON.stringify(roadmap));
