@@ -9,4 +9,3 @@ Currently, two official plugins are available:
 
 n
 wwr
-wfw
