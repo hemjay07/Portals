@@ -1,1 +1,1 @@
-web: gunicorn app:app
+web: gunicorn app:app -t 1800 --keep-alive 1800
