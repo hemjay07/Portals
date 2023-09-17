@@ -3159,7 +3159,7 @@ font-size: 20px;
   font-size: 1.5rem;
   margin-bottom: 2.0rem;
   text-align: center;
-`,sM="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAC6SURBVHgBrZIBDcIwEEV/FwTMAXMADhhKkIAEcIAEOgdIGA4mAQfgoPxLb0CObGuzveSvvV76d70WmImTTwih5nBAHo1zroUa+JDPVfYWxvVG7akHEikGymqQyMrEF5a25XhEItagRSy/Q2ywp2pdk1wlP6HKIYM7j+D1VoLM1eQDc2Jy6mPbgz9kA/WkzrrU/eYnDRCPICXvNH7lGoyyuEGlDVxTpc43mrPxlzlPub9GLz7II/m1jvIG+i2k63WycdoAAAAASUVORK5CYII=",aM="/assets/heart-d92f509f.svg",lM="/assets/X_logo-0b2af9f8.svg";function uM(){return g.jsxs(cM,{children:[g.jsx(dM,{}),g.jsxs(hM,{children:[g.jsxs(fM,{children:["Built with ",g.jsx(gM,{src:aM})]}),g.jsxs(pM,{children:[g.jsx(jv,{src:sM}),g.jsx(jv,{src:lM})]})]})]})}const cM=X.div`
+`,sM="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAC6SURBVHgBrZIBDcIwEEV/FwTMAXMADhhKkIAEcIAEOgdIGA4mAQfgoPxLb0CObGuzveSvvV76d70WmImTTwih5nBAHo1zroUa+JDPVfYWxvVG7akHEikGymqQyMrEF5a25XhEItagRSy/Q2ywp2pdk1wlP6HKIYM7j+D1VoLM1eQDc2Jy6mPbgz9kA/WkzrrU/eYnDRCPICXvNH7lGoyyuEGlDVxTpc43mrPxlzlPub9GLz7II/m1jvIG+i2k63WycdoAAAAASUVORK5CYII=",aM="/assets/heart-d92f509f.svg",lM="/assets/X_logo-84361762.svg";function uM(){return g.jsxs(cM,{children:[g.jsx(dM,{}),g.jsxs(hM,{children:[g.jsxs(fM,{children:["Built with ",g.jsx(gM,{src:aM})]}),g.jsxs(pM,{children:[g.jsx(jv,{src:sM}),g.jsx(jv,{src:lM})]})]})]})}const cM=X.div`
   background-color: #020401;
 `,dM=X.hr`
   color: #aae090;
