@@ -69,6 +69,6 @@ $ python app.py
 3. Add feature for users to receive push notifications when the deadline of completing one course is done
 
 ### Collaborators
-- [Opeyimika Aremu](linkedin.com/in/opeyimikaaremu/)
+- [Opeyimika Aremu](https://www.linkedin.com/in/opeyimikaaremu/)
 - [Mujeeb Opabode](https://ng.linkedin.com/in/abdulmujeeb-opabode-46080716a)
 - [Abdulquddus Ajibade](https://ng.linkedin.com/in/ajibadeadedayoabdulquddus)
