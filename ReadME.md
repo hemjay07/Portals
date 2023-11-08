@@ -1,6 +1,6 @@
 Portals
 -----
-> Live link: [http://portalss.up.railway.app](portalss.up.railway.app)
+> Live link: [https://portalss.up.railway.app/](https://portalss.up.railway.app/)
 
 ### Motivation
 My friends and I were in spots that could define our careers - we know what we want to be but how do we get there. We quickly realized that most "roadmaps" are generalized, comprehensive and as a result, overwhelming. 
