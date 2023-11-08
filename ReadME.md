@@ -17,7 +17,7 @@ Portals makes it easier to get started in tech as a beginner by generating a per
 
 
 ### Demo 
-![Demo of Portals](portalsdemo.gif)
+![Demo of Portals](portals_demo.gif)
 
 
 ### Tech Stack
@@ -31,7 +31,7 @@ Portals makes it easier to get started in tech as a beginner by generating a per
 - **Railway** - Deployment service
 
 ### Architecture
-![ Architecture of Portals ](./portals%20architecture.png)
+![ Architecture of Portals ](./portals_architecture.png)
 
 ### Development Setup
 
