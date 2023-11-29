@@ -1,6 +1,6 @@
 ## Portals
 
-> Live link: [https://portalss.up.railway.app/](https://portalss.up.railway.app/)
+> Live link: [https://portals3.onrender.com](https://portals3.onrender.com)
 
 ### Motivation
 
